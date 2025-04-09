@@ -40,9 +40,9 @@ private:
     TDT4102::Color textColor = TDT4102::Color::dark_red;
     int fontSize = 40;
     TDT4102::Font font = TDT4102::Font::courier_bold_italic;
-    TDT4102::Point birdLocation{window.width() / 4 * 1, window.height() / 3 * 2};
-    TDT4102::Point fishLocation{window.width() / 4 * 2, window.height() / 3 * 2};
-    TDT4102::Point alienLocation{window.width() / 4 * 3, window.height() / 3 * 2};
+    // TDT4102::Point birdLocation{window.width() / 4 * 1, window.height() / 3 * 2};
+    // TDT4102::Point fishLocation{window.width() / 4 * 2, window.height() / 3 * 2};
+    // TDT4102::Point alienLocation{window.width() / 4 * 3, window.height() / 3 * 2};
 
 };
 

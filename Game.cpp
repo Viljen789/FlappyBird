@@ -25,27 +25,9 @@ void Game::run() {
     }
 }
 
-// Samme med denne, kanskje brukes seinare
-// void Game::birdButtonCallback() {
-//     bird.setTheme(0);
-//     reset();
-// }
-//
-// void Game::fishButtonCallback() {
-//     bird.setTheme(1);
-//     reset();
-// }
-//
-// void Game::alienButtonCallback() {
-//     bird.setTheme(2);
-//     reset();
-// }
-
 void Game::processInput() {
-    if (window.is_key_down(KeyboardKey::SPACE)) {
-        bird.jump();
-    }
-
+    bird.jump(); // Always call jump to properly track space key state
+    
     if (gameOver && window.is_key_down(KeyboardKey::ENTER)) {
         reset();
     }
@@ -113,3 +95,4 @@ void Game::update() {
 void Game::spawnObstacle() {
     //Vegard fikse
 }
+

@@ -1,16 +1,17 @@
-//
-// Created by vilje on 09/04/2025.
-//
-
 #ifndef BIRD_H
 #define BIRD_H
+
+#include "AnimationWindow.h"
+#include "Image.h"
+#include "Point.h"
 #include <vector>
-#include <widgets/Button.h>
+#include <string>
 
-#include "animationwindow.h"
+constexpr int BIRD_WIDTH = 50;
+constexpr int BIRD_HEIGHT = 50;
 
-
-class Bird{
+class Bird
+{
 public:
     Bird(TDT4102::AnimationWindow &gameWindow);
 
@@ -24,14 +25,18 @@ public:
 
     void update();
 
-    void updatePosition();
-
     void jump();
 
     bool dying() const;
 
+    TDT4102::Point getPosition() const { return position; }
+    int getWidth() const { return BIRD_WIDTH; }
+    int getHeight() const { return BIRD_HEIGHT; }
+
 
 private:
+    void updatePosition();
+
     std::vector<TDT4102::Image> sprites = {
         TDT4102::Image("../assets/BirdSprite.png"),
         TDT4102::Image("../assets/FishSprite.png"),
@@ -43,31 +48,24 @@ private:
         TDT4102::Image("../assets/FishBackground.png"),
         TDT4102::Image("../assets/AlienBackground.png")
     };
-    std::vector<std::pair<int, float> > fallInfo = {
-        {1.01, window.height() / 100},
-        {1.02, window.height() / 100},
-        {1.03, window.height() / 100}
-    };
+
+    TDT4102::AnimationWindow &window;
+
     TDT4102::Image sprite;
     TDT4102::Image background;
+
     TDT4102::Point position;
-    TDT4102::AnimationWindow &window;
-    double jumpHeight = -10.0;
     int xPosition;
     double yPosition;
     double gravity;
+    double jumpHeight = -6.0;
+    bool isDead;
+    bool spaceWasPressed;
+
     int currentTheme;
     int currentBackground;
     int currentSprite;
-    int currentPosition{};
-    int currentWindow{};
-    int currentXPosition{};
-    int currentYPosition{};
-    bool isDead = false;
-    static constexpr int BIRD_WIDTH = 50;
-    static constexpr int BIRD_HEIGHT = 50;
-    bool spaceWasPressed = false;
+    bool spaceJustPressed = false;
 };
 
-
-#endif //BIRD_H
+#endif // BIRD_H
