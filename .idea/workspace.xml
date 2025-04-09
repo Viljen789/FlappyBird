@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="FlappyBird" targetName="program" />
+      <config projectName="FlappyBird" targetName="all" />
+      <config projectName="FlappyBird" targetName="animationwindow" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1716118-3766-4212-b489-91c4917916c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/.prettierrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/c_cpp_properties.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/tasks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bird.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bird.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/AlienBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/AlienSprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/AlienSpriteFlipped.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/BirdBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/BirdSprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/FishBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/FishSprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meson.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/score.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/AnimationWindow.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/Color.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/Font.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/Image.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/KeyboardKey.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/MessageType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/Point.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/Widget.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/FontCache.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/KeyboardKeyConverter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/nuklear.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/nuklear_configured.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/nuklear_sdl_renderer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/portable-file-dialogs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/internal/windows_main_fix.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/Button.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/CheckBox.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/DropdownList.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/RadioButton.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/Slider.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/TextBox.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/include/widgets/TextInput.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/meson.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/AnimationWindow.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/Color.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/Image.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/Widget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/internal/FontCache.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/internal/KeyboardKeyConverter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/internal/nuklear_implementation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/Button.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/CheckBox.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/DropdownList.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/RadioButton.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/Slider.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/TextBox.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/animationwindow/src/widgets/TextInput.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/libjpeg-turbo.wrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/libpng.wrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/libtiff-4.wrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2.wrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image.wrap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/CHANGES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/bin/SDL2_image.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/include/SDL2/SDL_image.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/cmake/SDL2_image/sdl2_image-config-version.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/cmake/SDL2_image/sdl2_image-config.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/libSDL2_image.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/libSDL2_image.dll.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/libSDL2_image.la" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/lib/pkgconfig/SDL2_image.pc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_image_windows/meson.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/BUGS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/COPYING.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/CREDITS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/INSTALL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/README-SDL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/WhatsNew.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/bin/SDL2.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/bin/sdl2-config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_assert.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_atomic.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_audio.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_bits.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_blendmode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_clipboard.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_cpuinfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_egl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_endian.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_error.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_events.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_filesystem.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_gamecontroller.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_gesture.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_guid.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_haptic.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_hidapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_hints.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_joystick.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_keyboard.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_keycode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_loadso.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_locale.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_log.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_main.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_messagebox.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_metal.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_misc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_mouse.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_mutex.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_name.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengl_glext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles2_gl2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles2_gl2ext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles2_gl2platform.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_opengles2_khrplatform.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_pixels.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_platform.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_power.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_quit.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_rect.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_render.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_revision.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_rwops.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_scancode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_sensor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_shape.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_stdinc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_surface.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_system.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_syswm.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_assert.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_compare.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_crc32.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_font.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_fuzzer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_harness.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_images.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_log.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_md5.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_memory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_test_random.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_thread.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_timer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_touch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_types.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_version.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_video.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/SDL_vulkan.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/begin_code.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/include/SDL2/close_code.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/cmake/SDL2/sdl2-config-version.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/cmake/SDL2/sdl2-config.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2.dll.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2.la" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2_test.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2_test.la" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2main.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/libSDL2main.la" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/lib/pkgconfig/sdl2.pc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/meson.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/sdl2_windows/share/aclocal/sdl2.m4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/std_lib_facilities/meson.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/std_lib_facilities/std_lib_facilities.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subprojects/zlib.wrap" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MesonLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="FlappyBird" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="FlappyBird" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="3.3" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2vT0dgDElLXfCaCeYYgwbgPBIL5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Native Application.program.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/vilje/Desktop/Studie/TDT4102/FlappyBird",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vilje\Desktop\Studie\TDT4102\FlappyBird\assets" />
+      <recent name="C:\Users\vilje\Desktop\Studie\TDT4102\FlappyBird" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Native Application.program">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FlappyBird" TARGET_NAME="all" CONFIG_NAME="Default" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="animationwindow" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FlappyBird" TARGET_NAME="animationwindow" CONFIG_NAME="Default" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="program" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FlappyBird" TARGET_NAME="program" CONFIG_NAME="Default" version="1" RUN_TARGET_PROJECT_NAME="FlappyBird" RUN_TARGET_NAME="program">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Native Application.animationwindow" />
+      <item itemvalue="Native Application.program" />
+      <item itemvalue="Native Application.all" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1716118-3766-4212-b489-91c4917916c6" name="Changes" comment="" />
+      <created>1744153845294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744153845294</updated>
+      <workItem from="1744153846468" duration="14609000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
