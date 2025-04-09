@@ -26,11 +26,12 @@ void Game::run() {
 }
 
 void Game::processInput() {
-    bird.jump(); // Always call jump to properly track space key state
-    
-    if (gameOver && window.is_key_down(KeyboardKey::ENTER)) {
+    bird.jump();
+
+    if (window.is_key_down(KeyboardKey::ENTER)) {
         reset();
     }
+
 
     if (window.is_key_down(KeyboardKey::KEY_1)) {
         bird.setTheme(0);
@@ -77,7 +78,6 @@ void Game::render() {
 }
 
 void Game::update() {
-    if (gameOver) return;
 
     bird.update();
 
@@ -95,4 +95,6 @@ void Game::update() {
 void Game::spawnObstacle() {
     //Vegard fikse
 }
+
+
 

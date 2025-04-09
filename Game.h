@@ -24,6 +24,7 @@ private:
     bool gameOver = false;
     int score = 0;
 
+
     void processInput();
 
     void update();

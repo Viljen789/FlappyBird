@@ -5,10 +5,13 @@
 #include "Image.h"
 #include "Point.h"
 #include <vector>
-#include <string>
+#include <random>
 
 constexpr int BIRD_WIDTH = 50;
 constexpr int BIRD_HEIGHT = 50;
+constexpr int TRAIL_LENGTH = 100;
+constexpr int TRAIL_SPACING = 100;
+constexpr int TRAIL_OFFSET = 50;
 
 class Bird
 {
@@ -23,6 +26,8 @@ public:
 
     void renderBackground();
 
+    void trail();
+
     void update();
 
     void jump();
@@ -30,12 +35,11 @@ public:
     bool dying() const;
 
     TDT4102::Point getPosition() const { return position; }
-    int getWidth() const { return BIRD_WIDTH; }
-    int getHeight() const { return BIRD_HEIGHT; }
 
 
 private:
     void updatePosition();
+    void generateRandomIntervals();
 
     std::vector<TDT4102::Image> sprites = {
         TDT4102::Image("../assets/BirdSprite.png"),
@@ -47,6 +51,10 @@ private:
         TDT4102::Image("../assets/BirdBackground.png"),
         TDT4102::Image("../assets/FishBackground.png"),
         TDT4102::Image("../assets/AlienBackground.png")
+    };std::vector<TDT4102::Image> trails = {
+        TDT4102::Image("../assets/BirdTrail.png"),
+        TDT4102::Image("../assets/FishTrail.png"),
+        TDT4102::Image("../assets/AlienTrail.png")
     };
 
     TDT4102::AnimationWindow &window;
@@ -66,6 +74,20 @@ private:
     int currentBackground;
     int currentSprite;
     bool spaceJustPressed = false;
+
+    std::vector<TDT4102::Point> positionHistory;
+    int frameCounter = 0;
+    int trailUpdateInterval = 10;
+    int currentTrailInterval = 10;
+    int bubbleSpawnInterval = 120;
+    int currentBubbleInterval = 120;
+    int bubbleFrameCounter = 0;
+
+    std::mt19937 rng{std::random_device{}()};
+
+    std::vector<double> bubbleXOffsets;
+    double bubbleSpeed = 2.0;
 };
 
 #endif // BIRD_H
+
