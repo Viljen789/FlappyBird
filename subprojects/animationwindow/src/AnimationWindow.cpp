@@ -47,7 +47,7 @@ TDT4102::AnimationWindow::AnimationWindow(int x, int y, int width, int height, c
     SDL_RendererInfo rendererInfo;
     SDL_GetRendererInfo(rendererHandle, &rendererInfo);
 
-    std::cout << "Created an SDL renderer with name: " << rendererInfo.name << std::endl;
+    // std::cout << "Created an SDL renderer with name: " << rendererInfo.name << std::endl;
 
     context = nk_sdl_init(windowHandle, rendererHandle);
     fontCache.initialize();

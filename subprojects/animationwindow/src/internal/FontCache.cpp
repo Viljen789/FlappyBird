@@ -52,7 +52,7 @@ void TDT4102::internal::FontCache::loadFont(nk_context *context, TDT4102::Font f
     } else {
         // Load a font from a TTF file
         std::filesystem::path ttfFile = fontFileLocations.at(face);
-        std::cout << "Found TTF file: " << ttfFile.string() << std::endl;
+        // std::cout << "Found TTF file: " << ttfFile.string() << std::endl;
 
         nk_sdl_font_stash_begin(&atlas);
         font = nk_font_atlas_add_from_file(atlas, ttfFile.string().c_str(), float(size), &config);
