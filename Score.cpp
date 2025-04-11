@@ -2,8 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include <limits>
+#include <stdexcept>
 
-Score::Score(const std::string& filePath) : scoreFilePath(filePath), currentScore(0), currentTheme(0) {
+Score::Score(const std::string &filePath) : scoreFilePath(filePath), currentScore(0), currentTheme(0) {
     for (int i = 0; i < MAX_THEMES; ++i) {
         highScores[i] = 0;
     }
@@ -36,7 +37,7 @@ int Score::getHighScore() const {
 }
 
 bool Score::isNewHighScore() const {
-    return currentScore > highScores[currentTheme];
+    return currentScore >= highScores[currentTheme];
 }
 
 void Score::updateAndSaveHighScore() {
@@ -47,52 +48,52 @@ void Score::updateAndSaveHighScore() {
 }
 
 void Score::loadHighScoresFromFile() {
-    std::ifstream inputStream(scoreFilePath);
-
-    if (!inputStream) {
-        std::cerr << "Info: Score file not found at " << scoreFilePath.string() << ". Creating new file with default scores." << std::endl;
-        saveHighScoresToFile();
-        return;
-    }
-
-    int theme = 0;
-    int score = 0;
-    while (inputStream >> theme >> score) {
-        if (theme >= 0 && theme < MAX_THEMES) {
-            if (score > highScores[theme]) {
-                 highScores[theme] = score;
-            }
-        } else {
-            std::cerr << "Invalid theme index " << theme << " found in score file. Skipping line." << std::endl;
+    try {
+        std::ifstream inputFile(scoreFilePath);
+        if (!inputFile.is_open()) {
+            std::cerr << "Warning: Could not open score file. Using default scores." << std::endl;
+            return;
         }
+
+        int theme, score;
+        while (inputFile >> theme >> score) {
+            if (theme >= 0 && theme < MAX_THEMES) {
+                highScores[theme] = score;
+            }
+        }
+
+        inputFile.close();
+    } catch (const std::exception &e) {
+        std::cerr << "Error loading scores: " << e.what() << std::endl;
     }
-    if (inputStream.bad()) {
-         std::cerr << "Error reading score file: " << scoreFilePath.string() << std::endl;
-    }
-    inputStream.clear();
 }
 
 void Score::saveHighScoresToFile() {
-    std::ofstream outputStream(scoreFilePath, std::ios::trunc);
+    try {
+        std::ofstream outputFile(scoreFilePath);
+        if (!outputFile.is_open()) {
+            std::cerr << "Error: Could not open score file for writing." << std::endl;
+            return;
+        }
 
-    if (!outputStream) {
-        std::cerr << "Could not open score file for writing at: " << scoreFilePath.string() << std::endl;
-        return;
-    }
+        for (int i = 0; i < MAX_THEMES; ++i) {
+            outputFile << i << " " << highScores[i] << std::endl;
+        }
 
-    for (int i = 0; i < MAX_THEMES; ++i) {
-        outputStream << i << " " << highScores[i] << "\n";
-    }
-
-    if (outputStream.fail()) {
-         std::cerr << "Error writing to score file: " << scoreFilePath.string() << std::endl;
+        outputFile.close();
+    } catch (const std::exception &e) {
+        std::cerr << "Error saving scores: " << e.what() << std::endl;
     }
 }
 
+//formatting the highscores
 std::vector<std::string> Score::getFormattedTopScores() {
+    formatedTopScores.clear();
 
     for (int i = 0; i < MAX_THEMES; ++i) {
-        formatedTopScores.push_back("Rekord " + themeNames[i] + ": " + std::to_string(highScores[i]));
+        std::string scoreText = themeNames[i] + ": " + std::to_string(highScores[i]);
+        formatedTopScores.push_back(scoreText);
     }
+
     return formatedTopScores;
 }

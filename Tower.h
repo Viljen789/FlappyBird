@@ -9,8 +9,7 @@ constexpr int TOWER_WIDTH = 50;
 constexpr int SPEED = 1;
 constexpr int SPACE_INBETWEEN = 150;
 
-class Tower 
-{
+class Tower {
 private:
     TDT4102::AnimationWindow &window;
 
@@ -28,12 +27,16 @@ private:
     int yPosition_lower;
     int xPosition;
     bool outOfScreen;
+
 public:
     Tower(TDT4102::AnimationWindow &gameWindow, int xPosition);
 
     void updatePosition();
+
     void render();
-    bool checkCollision (int birdX, int birdY) const;
+
+    bool checkCollision(int birdX, int birdY) const;
+
     bool isOutOfScreen() const;
 };
 

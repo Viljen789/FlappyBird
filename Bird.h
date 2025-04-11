@@ -13,13 +13,12 @@ constexpr int TRAIL_LENGTH = 100;
 constexpr int TRAIL_SPACING = 100;
 constexpr int TRAIL_OFFSET = 50;
 
-class Bird
-{
+class Bird {
 public:
     Bird(TDT4102::AnimationWindow &gameWindow);
 
     void setTheme(int theme);
-    
+
     int getTheme() const;
 
     void reset();
@@ -37,29 +36,47 @@ public:
     bool dying() const;
 
     int returnXPos() const;
+
     int returnYPos() const;
 
     TDT4102::Point getPosition() const { return position; }
 
-
 private:
     void updatePosition();
+
     void generateRandomIntervals();
 
+    //The path may differ based on system, use the one that works
+    // std::vector<TDT4102::Image> sprites = {
+    //     TDT4102::Image("./assets/BirdSprite.png"),
+    //     TDT4102::Image("./assets/FishSprite.png"),
+    //     TDT4102::Image("./assets/AlienSprite.png"),
+    //     TDT4102::Image("./assets/AlienSpriteFlipped.png")
+    // };
+    // std::vector<TDT4102::Image> backgrounds = {
+    //     TDT4102::Image("./assets/BirdBackground.png"),
+    //     TDT4102::Image("./assets/FishBackground.png"),
+    //     TDT4102::Image("./assets/AlienBackground.png")
+    // };std::vector<TDT4102::Image> trails = {
+    //     TDT4102::Image("./assets/BirdTrail.png"),
+    //     TDT4102::Image("./assets/FishTrail.png"),
+    //     TDT4102::Image("./assets/AlienTrail.png")
+    // };
     std::vector<TDT4102::Image> sprites = {
-        TDT4102::Image("./assets/BirdSprite.png"),
-        TDT4102::Image("./assets/FishSprite.png"),
-        TDT4102::Image("./assets/AlienSprite.png"),
-        TDT4102::Image("./assets/AlienSpriteFlipped.png")
+        TDT4102::Image("../assets/BirdSprite.png"),
+        TDT4102::Image("../assets/FishSprite.png"),
+        TDT4102::Image("../assets/AlienSprite.png"),
+        TDT4102::Image("../assets/AlienSpriteFlipped.png")
     };
     std::vector<TDT4102::Image> backgrounds = {
-        TDT4102::Image("./assets/BirdBackground.png"),
-        TDT4102::Image("./assets/FishBackground.png"),
-        TDT4102::Image("./assets/AlienBackground.png")
-    };std::vector<TDT4102::Image> trails = {
-        TDT4102::Image("./assets/BirdTrail.png"),
-        TDT4102::Image("./assets/FishTrail.png"),
-        TDT4102::Image("./assets/AlienTrail.png")
+        TDT4102::Image("../assets/BirdBackground.png"),
+        TDT4102::Image("../assets/FishBackground.png"),
+        TDT4102::Image("../assets/AlienBackground.png")
+    };
+    std::vector<TDT4102::Image> trails = {
+        TDT4102::Image("../assets/BirdTrail.png"),
+        TDT4102::Image("../assets/FishTrail.png"),
+        TDT4102::Image("../assets/AlienTrail.png")
     };
 
     TDT4102::AnimationWindow &window;
@@ -82,16 +99,13 @@ private:
 
     std::vector<TDT4102::Point> positionHistory;
     int frameCounter = 0;
-    int trailUpdateInterval = 10;
-    int currentTrailInterval = 10;
-    int bubbleSpawnInterval = 120;
-    int currentBubbleInterval = 120;
-    int bubbleFrameCounter = 0;
+    int trailUpdateInterval = 100;
+    int currentTrailInterval;
 
     std::mt19937 rng{std::random_device{}()};
 
-    std::vector<double> bubbleXOffsets;
-    double bubbleSpeed = 2.0;
+    std::vector<double> XOffsets;
+    double trailSpeed = 2.0;
 };
 
 #endif // BIRD_H

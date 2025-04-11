@@ -17,23 +17,18 @@ Bird::Bird(TDT4102::AnimationWindow &gameWindow) : window(gameWindow),
     updatePosition();
 
     positionHistory.clear();
-    bubbleXOffsets.clear();
+    XOffsets.clear();
     generateRandomIntervals();
 }
 
+//Generating the trails so they appear randomly
 void Bird::generateRandomIntervals() {
     std::uniform_int_distribution<int> trailDist(
         static_cast<int>(trailUpdateInterval * 0.6),
         static_cast<int>(trailUpdateInterval * 1.4)
     );
-    
-    std::uniform_int_distribution<int> bubbleDist(
-        static_cast<int>(bubbleSpawnInterval * 0.6),
-        static_cast<int>(bubbleSpawnInterval * 1.4)
-    );
-    
+
     currentTrailInterval = trailDist(rng);
-    currentBubbleInterval = bubbleDist(rng);
 }
 
 void Bird::reset() {
@@ -54,9 +49,8 @@ void Bird::reset() {
     }
 
     positionHistory.clear();
-    bubbleXOffsets.clear();
+    XOffsets.clear();
     frameCounter = 0;
-    bubbleFrameCounter = 0;
 
     generateRandomIntervals();
 
@@ -94,8 +88,8 @@ void Bird::render() {
 
         for (size_t i = 0; i < positionHistory.size(); ++i) {
             int xOffset = 0;
-            if (i < bubbleXOffsets.size()) {
-                xOffset = static_cast<int>(bubbleXOffsets[i]);
+            if (i < XOffsets.size()) {
+                xOffset = static_cast<int>(XOffsets[i]);
             }
             int trailSize = BIRD_WIDTH - static_cast<int>(i * 3);
             if (trailSize < 10) trailSize = 10;
@@ -113,7 +107,7 @@ void Bird::render() {
             } else {
                 if (trailSize >= BIRD_WIDTH * 0.3) {
                     window.draw_image({positionHistory[i].x - xOffset, positionHistory[i].y}, trails[2], trailSize,
-                                    trailSize);
+                                      trailSize);
                 }
             }
         }
@@ -128,7 +122,7 @@ void Bird::update() {
     if (isDead)
         return;
     yPosition += gravity;
-
+    //Different logic for different themes
     if (currentTheme == 0) {
         gravity += 0.3;
     } else if (currentTheme == 1) {
@@ -153,49 +147,48 @@ void Bird::update() {
     updatePosition();
 
     frameCounter++;
-    bubbleFrameCounter++;
-
+    // A lot of work just for trails
     if (frameCounter >= currentTrailInterval) {
         frameCounter = 0;
         positionHistory.insert(positionHistory.begin(), position);
-        bubbleXOffsets.insert(bubbleXOffsets.begin(), 0.0);
+        XOffsets.insert(XOffsets.begin(), 0.0);
 
         if (currentTheme != 1 && positionHistory.size() > TRAIL_LENGTH) {
             positionHistory.pop_back();
-            if (bubbleXOffsets.size() > TRAIL_LENGTH) {
-                bubbleXOffsets.pop_back();
+            if (XOffsets.size() > TRAIL_LENGTH) {
+                XOffsets.pop_back();
             }
         }
 
         generateRandomIntervals();
     }
-    
-    for (size_t i = 0; i < bubbleXOffsets.size(); i++) {
-        double speed = (currentTheme == 1) ? bubbleSpeed : bubbleSpeed * 0.5;
-        bubbleXOffsets[i] += speed;
 
-        if (i < positionHistory.size() && bubbleXOffsets[i] > window.width()) {
-            if (i == bubbleXOffsets.size() - 1) {
-                bubbleXOffsets.pop_back();
+    for (int i = 0; i < XOffsets.size(); i++) {
+        double speed = (currentTheme == 1) ? trailSpeed : trailSpeed * 0.5;
+        XOffsets[i] += speed;
+
+        if (i < positionHistory.size() && XOffsets[i] > window.width()) {
+            if (i == XOffsets.size() - 1) {
+                XOffsets.pop_back();
                 if (i < positionHistory.size()) {
-                    positionHistory.erase(positionHistory.begin() + static_cast<long>(i));
+                    positionHistory.erase(positionHistory.begin() + i);
                 }
             }
         }
     }
 
-    while (positionHistory.size() > bubbleXOffsets.size()) {
+    while (positionHistory.size() > XOffsets.size()) {
         positionHistory.pop_back();
     }
-    while (bubbleXOffsets.size() > positionHistory.size()) {
-        bubbleXOffsets.pop_back();
+    while (XOffsets.size() > positionHistory.size()) {
+        XOffsets.pop_back();
     }
 }
 
 void Bird::jump() {
     if (isDead)
         return;
-
+    //Different logic for different themes
     bool spaceIsPressed = window.is_key_down(KeyboardKey::SPACE);
     spaceJustPressed = spaceIsPressed && !spaceWasPressed;
     if (currentTheme == 1 and spaceIsPressed) {
@@ -207,7 +200,7 @@ void Bird::jump() {
         } else if (currentTheme == 2) {
             gravity = -gravity;
             currentSprite = (currentSprite == 2) ? 3 : 2;
-            sprite = sprites[static_cast<size_t>(currentSprite)];
+            sprite = sprites[currentSprite];
         }
     }
 
@@ -217,6 +210,7 @@ void Bird::jump() {
 int Bird::returnXPos() const {
     return xPosition;
 }
+
 int Bird::returnYPos() const {
     return yPosition;
 }
@@ -224,4 +218,3 @@ int Bird::returnYPos() const {
 bool Bird::dying() const {
     return isDead;
 }
-

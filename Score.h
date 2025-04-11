@@ -13,7 +13,6 @@ private:
     static const int MAX_THEMES = 3;
     int highScores[MAX_THEMES];
 
-    void loadHighScoresFromFile();
     void saveHighScoresToFile();
 
     std::vector<std::string> themeNames = {
@@ -24,17 +23,23 @@ private:
     std::vector<std::string> formatedTopScores;
 
 public:
-    Score(const std::string& filePath = "score.txt");
+    Score(const std::string &filePath = "score.txt");
 
     void resetCurrentScore();
+
     void incrementScore();
+
     void setTheme(int theme);
 
     int getCurrentScore() const;
+
     int getHighScore() const;
+
     bool isNewHighScore() const;
 
     void updateAndSaveHighScore();
+
+    void loadHighScoresFromFile();
 
     std::vector<std::string> getFormattedTopScores();
 };

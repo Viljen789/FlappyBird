@@ -26,8 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1716118-3766-4212-b489-91c4917916c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bird.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Bird.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bird.h" beforeDir="false" afterPath="$PROJECT_DIR$/Bird.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Score.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Score.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Score.h" beforeDir="false" afterPath="$PROJECT_DIR$/Score.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tower.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tower.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meson.build" beforeDir="false" afterPath="$PROJECT_DIR$/meson.build" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/score.txt" beforeDir="false" afterPath="$PROJECT_DIR$/score.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +69,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MesonLocalSettings">
     <option name="availableProjects">
@@ -166,7 +176,10 @@
       <workItem from="1744226073604" duration="2887000" />
       <workItem from="1744230589639" duration="6618000" />
       <workItem from="1744238144688" duration="15024000" />
-      <workItem from="1744371106243" duration="4018000" />
+      <workItem from="1744371106243" duration="4100000" />
+      <workItem from="1744392839641" duration="318000" />
+      <workItem from="1744393161579" duration="7241000" />
+      <workItem from="1744400418165" duration="567000" />
     </task>
     <servers />
   </component>
