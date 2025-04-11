@@ -9,9 +9,16 @@ Game::Game(int width, int height): window(width, height),
     reset();
 }
 
+int current_time = 0;
 
 void Game::reset() {
     bird.reset();
+
+    towers.clear();
+    Tower t = Tower{window, 500};
+    towers.push_back(t);
+    current_time = time(0);
+ 
     gameOver = false;
     score = 0;
 }
@@ -32,7 +39,6 @@ void Game::processInput() {
         reset();
     }
 
-
     if (window.is_key_down(KeyboardKey::KEY_1)) {
         bird.setTheme(0);
     } else if (window.is_key_down(KeyboardKey::KEY_2)) {
@@ -41,7 +47,6 @@ void Game::processInput() {
         bird.setTheme(2);
     }
 }
-
 
 void Game::render() {
     if (gameOver) {
@@ -72,6 +77,23 @@ void Game::render() {
     bird.renderBackground();
     bird.render();
 
+    // TOWER LOGIC
+    for (int i = 0; i < int(towers.size()); i++) {
+        towers[i].render();
+    }
+    
+    if (time(0) == current_time + 3) {
+        current_time = time(0);
+        towers.push_back(Tower{window, 500});
+
+        std::cout << int(towers.size()) << std::endl;
+        if(int(towers.size()) > 5) {
+            towers.pop_back();
+        }
+    }
+    
+    //here
+
     std::string scoreText = "Score: " + std::to_string(score);
     std::string highScore = "Highscore: " + std::to_string(score);
     window.draw_text({10, 10}, scoreText, TDT4102::Color::black, 20, TDT4102::Font::courier_bold_italic);
@@ -80,9 +102,14 @@ void Game::render() {
 void Game::update() {
 
     bird.update();
-
+    //tower.updatePosition();
 
     //kollisjonslogikk
+    for (int i = 0; i < int(towers.size()); i++) {
+        if(towers[i].checkCollision(bird.returnXPos(), bird.returnYPos())) {
+            gameOver = true;
+        };
+    }
 
     if (bird.dying()) {
         gameOver = true;

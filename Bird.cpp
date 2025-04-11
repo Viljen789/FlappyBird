@@ -210,6 +210,13 @@ void Bird::jump() {
     spaceWasPressed = spaceIsPressed;
 }
 
+int Bird::returnXPos() const {
+    return xPosition;
+}
+int Bird::returnYPos() const {
+    return yPosition;
+}
+
 bool Bird::dying() const {
     return isDead;
 }

@@ -3,6 +3,7 @@
 
 #include "AnimationWindow.h"
 #include "Bird.h"
+#include "Tower.h"
 
 
 class Game {
@@ -20,10 +21,10 @@ public:
 private:
     TDT4102::AnimationWindow window;
     Bird bird;
+    std::vector<Tower> towers;
 
     bool gameOver = false;
     int score = 0;
-
 
     void processInput();
 
