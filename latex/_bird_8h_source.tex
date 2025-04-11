@@ -1,0 +1,116 @@
+\doxysection{Bird.\+h}
+\label{_bird_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BIRD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BIRD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}AnimationWindow.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Image.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Point.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ BIRD\_WIDTH\ =\ 50;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ BIRD\_HEIGHT\ =\ 50;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TRAIL\_LENGTH\ =\ 100;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TRAIL\_SPACING\ =\ 100;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TRAIL\_OFFSET\ =\ 50;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }Bird\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ Bird(TDT4102::AnimationWindow\ \&gameWindow);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ setTheme(\textcolor{keywordtype}{int}\ theme);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ getTheme()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ renderBackground();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ trail();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ jump();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ dying()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ returnXPos()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ returnYPos()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ TDT4102::Point\ getPosition()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ position;\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ updatePosition();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ generateRandomIntervals();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//The\ path\ may\ differ\ based\ on\ system,\ use\ the\ one\ that\ works}}
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<TDT4102::Image>\ sprites\ =\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/BirdSprite.png"{}}),}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/FishSprite.png"{}}),}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/AlienSprite.png"{}}),}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/AlienSpriteFlipped.png"{}})}
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ \ \ \ \ std::vector<TDT4102::Image>\ backgrounds\ =\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/BirdBackground.png"{}}),}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/FishBackground.png"{}}),}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/AlienBackground.png"{}})}
+\DoxyCodeLine{00060\ \ \ \ \ \};std::vector<TDT4102::Image>\ trails\ =\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/BirdTrail.png"{}}),}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/FishTrail.png"{}}),}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/AlienTrail.png"{}})}
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ std::vector<TDT4102::Image>\ sprites\ =\ \{}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/BirdSprite.png"{}),}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/FishSprite.png"{}),}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/AlienSprite.png"{}),}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/AlienSpriteFlipped.png"{})}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ \};}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ std::vector<TDT4102::Image>\ backgrounds\ =\ \{}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/BirdBackground.png"{}),}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/FishBackground.png"{}),}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/AlienBackground.png"{})}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ \};}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ std::vector<TDT4102::Image>\ trails\ =\ \{}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/BirdTrail.png"{}),}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/FishTrail.png"{}),}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ TDT4102::Image("{}../assets/AlienTrail.png"{})}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ \};}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ TDT4102::AnimationWindow\ \&window;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ TDT4102::Image\ sprite;}
+\DoxyCodeLine{00085\ \ \ \ \ TDT4102::Image\ background;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ TDT4102::Point\ position;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ xPosition;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ yPosition;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{double}\ gravity;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{double}\ jumpHeight\ =\ -\/6.0;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDead;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ spaceWasPressed;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ currentTheme;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ currentBackground;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{int}\ currentSprite;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ spaceJustPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<TDT4102::Point>\ positionHistory;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ frameCounter\ =\ 0;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ trailUpdateInterval\ =\ 100;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{int}\ currentTrailInterval;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::mt19937\ rng\{std::random\_device\{\}()\};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::vector<double>\ XOffsets;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{double}\ trailSpeed\ =\ 2.0;}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BIRD\_H}}
+
+\end{DoxyCode}

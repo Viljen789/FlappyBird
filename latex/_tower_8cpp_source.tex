@@ -1,0 +1,65 @@
+\doxysection{Tower.\+cpp}
+\label{_tower_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Tower.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Game.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}AnimationWindow.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ Tower::Tower(TDT4102::AnimationWindow\ \&gameWindow,\ \textcolor{keywordtype}{int}\ xPosition)\ :\ window(gameWindow),\ xPosition(window.width())}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ yPosition\_upper\ =\ 0;}
+\DoxyCodeLine{00011\ \ \ \ \ outOfScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00012\ \ \ \ \ std::random\_device\ rd;\ \ \textcolor{comment}{//\ obtain\ a\ random\ number\ from\ hardware}}
+\DoxyCodeLine{00013\ \ \ \ \ std::mt19937\ gen(rd());\ \textcolor{comment}{//\ seed\ the\ generator}}
+\DoxyCodeLine{00014\ \ \ \ \ std::uniform\_int\_distribution<>\ distr(200,\ window.height()\ -\/\ 200);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ height\_upper\ =\ distr(gen);}
+\DoxyCodeLine{00017\ \ \ \ \ yPosition\_lower\ =\ yPosition\_upper\ +\ height\_upper\ +\ SPACE\_INBETWEEN;}
+\DoxyCodeLine{00018\ \ \ \ \ height\_lower\ =\ window.height()\ -\/\ yPosition\_lower;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Change\ based\ on\ system}}
+\DoxyCodeLine{00021\ \ \ \ \ spriteup\ =\ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/tower\_up.png"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ spritedown\ =\ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/tower\_down.png"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ spriteup\ =\ TDT4102::Image("{}../assets/tower\_up.png"{});}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ spritedown\ =\ TDT4102::Image("{}../assets/tower\_down.png"{});}}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ Tower::updatePosition()}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ xPosition\ -\/=\ SPEED;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (xPosition\ <\ 0)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ outOfScreen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{bool}\ Tower::isOutOfScreen()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ outOfScreen;}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ Tower::render()}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ position\_upper\ =\ \{xPosition,\ yPosition\_upper\};}
+\DoxyCodeLine{00044\ \ \ \ \ position\_lower\ =\ \{xPosition,\ yPosition\_lower\};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ window.draw\_image(position\_upper,\ spritedown,\ TOWER\_WIDTH,\ height\_upper);}
+\DoxyCodeLine{00047\ \ \ \ \ window.draw\_image(position\_lower,\ spriteup,\ TOWER\_WIDTH,\ height\_lower);}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{bool}\ Tower::checkCollision(\textcolor{keywordtype}{int}\ birdX,\ \textcolor{keywordtype}{int}\ birdY)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (birdX\ >\ xPosition\ -\/\ TOWER\_WIDTH\ /\ 2\ \&\&\ birdX\ <\ xPosition\ +\ TOWER\_WIDTH\ /\ 2)}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (birdY\ <\ height\_upper\ ||\ birdY\ >\ yPosition\_lower)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}

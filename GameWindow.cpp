@@ -6,6 +6,7 @@ GameWindow::GameWindow(int width, int height, const std::string &title)
 }
 
 void GameWindow::drawScore(int score, TDT4102::Point position, TDT4102::Color color) {
+    /// skriven inn den live scoren, og viser den på skjermen.
     std::string scoreText = "Score: " + std::to_string(score);
     draw_text(position, scoreText, color);
 }

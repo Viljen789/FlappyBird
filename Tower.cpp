@@ -5,36 +5,41 @@
 #include <cstdlib>
 #include <random>
 
-Tower::Tower(TDT4102::AnimationWindow &gameWindow, int xPosition) : window(gameWindow), xPosition(window.width()) {
+Tower::Tower(TDT4102::AnimationWindow &gameWindow, int xPosition) : window(gameWindow), xPosition(window.width())
+{
     yPosition_upper = 0;
     outOfScreen = false;
-    std::random_device rd; // obtain a random number from hardware
-    std::mt19937 gen(rd()); // seed the generator
+    std::random_device rd;  /// obtain a random number from hardware
+    std::mt19937 gen(rd()); /// seed the generator
     std::uniform_int_distribution<> distr(200, window.height() - 200);
 
     height_upper = distr(gen);
     yPosition_lower = yPosition_upper + height_upper + SPACE_INBETWEEN;
     height_lower = window.height() - yPosition_lower;
 
-    //Change based on system
-    // spriteup = TDT4102::Image("./assets/tower_up.png");
-    // spritedown = TDT4102::Image("./assets/tower_down.png");
-    spriteup = TDT4102::Image("../assets/tower_up.png");
-    spritedown = TDT4102::Image("../assets/tower_down.png");
+    // Change based on system
+    spriteup = TDT4102::Image("./assets/tower_up.png");
+    spritedown = TDT4102::Image("./assets/tower_down.png");
+    // spriteup = TDT4102::Image("../assets/tower_up.png");
+    // spritedown = TDT4102::Image("../assets/tower_down.png");
 }
 
-void Tower::updatePosition() {
+void Tower::updatePosition()
+{
     xPosition -= SPEED;
-    if (xPosition < 0) {
+    if (xPosition < 0)
+    {
         outOfScreen = true;
     }
 }
 
-bool Tower::isOutOfScreen() const {
+bool Tower::isOutOfScreen() const
+{
     return outOfScreen;
 }
 
-void Tower::render() {
+void Tower::render()
+{
     position_upper = {xPosition, yPosition_upper};
     position_lower = {xPosition, yPosition_lower};
 
@@ -42,9 +47,13 @@ void Tower::render() {
     window.draw_image(position_lower, spriteup, TOWER_WIDTH, height_lower);
 }
 
-bool Tower::checkCollision(int birdX, int birdY) const {
-    if (birdX > xPosition - TOWER_WIDTH / 2 && birdX < xPosition + TOWER_WIDTH / 2) {
-        if (birdY < height_upper || birdY > yPosition_lower) {
+bool Tower::checkCollision(int birdX, int birdY) const
+{
+    /// Sjekker om fuglen er i tårnet basert på x og y posisjon til sprite og tårnet
+    if (birdX > xPosition - TOWER_WIDTH / 2 && birdX < xPosition + TOWER_WIDTH / 2)
+    {
+        if (birdY < height_upper || birdY > yPosition_lower)
+        {
             return true;
         }
     }

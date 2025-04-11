@@ -20,6 +20,7 @@ void Score::incrementScore() {
 }
 
 void Score::setTheme(int theme) {
+    ///Setter riktig theme. Trenger egentlig ikke if/else her, holder med den currentheem = theme siden man aldri direkte skriver inn verdi, og hva som kan komme som input er bare de gyldige verdiene, men det er greit å ha litt sjekk
     if (theme >= 0 && theme < MAX_THEMES) {
         currentTheme = theme;
     } else {
@@ -49,9 +50,10 @@ void Score::updateAndSaveHighScore() {
 
 void Score::loadHighScoresFromFile() {
     try {
+        ///Try - catch for å håndtere feil ved lesing fra fil
         std::ifstream inputFile(scoreFilePath);
         if (!inputFile.is_open()) {
-            std::cerr << "Warning: Could not open score file. Using default scores." << std::endl;
+            std::cerr << "Could not open score file. Using default scores." << std::endl;
             return;
         }
 
@@ -69,6 +71,7 @@ void Score::loadHighScoresFromFile() {
 }
 
 void Score::saveHighScoresToFile() {
+    ///Try - catch for å håndtere feil ved skriving til fil
     try {
         std::ofstream outputFile(scoreFilePath);
         if (!outputFile.is_open()) {
@@ -86,8 +89,8 @@ void Score::saveHighScoresToFile() {
     }
 }
 
-//formatting the highscores
 std::vector<std::string> Score::getFormattedTopScores() {
+    ///Formaterer rekordene til en streng som kan brukes i GUI
     formatedTopScores.clear();
 
     for (int i = 0; i < MAX_THEMES; ++i) {

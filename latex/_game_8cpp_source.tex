@@ -1,0 +1,254 @@
+\doxysection{Game.\+cpp}
+\label{_game_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Game.h"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <widgets/Button.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ Game::Game(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ :\ window(width,\ height,\ \textcolor{stringliteral}{"{}Flappy\ Bird"{}}),}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bird(window),}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ score(\textcolor{stringliteral}{"{}./score.txt"{}})}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ score("{}../score.txt"{})}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ gameOver\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00014\ \ \ \ \ scoreHasBeenSaved\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ bird.setTheme(currentTheme);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ score.setTheme(currentTheme);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ initButtons();}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ during\ game\ initialization:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ Game::initButtons()}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ buttonWidth\ =\ 150;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ buttonHeight\ =\ 50;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ buttonSpacing\ =\ 100;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ totalWidth\ =\ (buttonWidth\ *\ 3)\ +\ (buttonSpacing\ *\ 2);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ startX\ =\ (window.width()\ -\/\ totalWidth)\ /\ 2;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ buttonY\ =\ (window.height()\ -\/\ 50);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ themeButtons.push\_back(TDT4102::Button(\{startX,\ buttonY\},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buttonWidth,\ buttonHeight,\ \textcolor{stringliteral}{"{}Fugl"{}}));}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ themeButtons.push\_back(TDT4102::Button(\{startX\ +\ (buttonWidth\ +\ buttonSpacing),\ buttonY\},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buttonWidth,\ buttonHeight,\ \textcolor{stringliteral}{"{}Fisk"{}}));}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ themeButtons.push\_back(TDT4102::Button(\{startX\ +\ (buttonWidth\ +\ buttonSpacing)\ *\ 2,\ buttonY\},}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buttonWidth,\ buttonHeight,\ \textcolor{stringliteral}{"{}Romvesen"{}}));}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ themeButtons[0].setCallback(std::bind(\&Game::birdThemeCallback,\ \textcolor{keyword}{this}));}
+\DoxyCodeLine{00047\ \ \ \ \ themeButtons[1].setCallback(std::bind(\&Game::fishThemeCallback,\ \textcolor{keyword}{this}));}
+\DoxyCodeLine{00048\ \ \ \ \ themeButtons[2].setCallback(std::bind(\&Game::alienThemeCallback,\ \textcolor{keyword}{this}));}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&button\ :\ themeButtons)}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ window.add(button);}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ Theme\ button\ callbacks}}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ Game::birdThemeCallback()}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ handleThemeSelection(0);}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ Game::fishThemeCallback()}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ handleThemeSelection(1);}
+\DoxyCodeLine{00064\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ Game::alienThemeCallback()}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ handleThemeSelection(2);}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Reset\ game\ state}}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ Game::reset()}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ bird.reset();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ towers.clear();}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ towers.reserve(36);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ Tower\ t2\ =\ Tower\{window,\ window.width()\};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ towers.push\_back(t2);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ current\_time\ =\ time(0);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ gameOver\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ scoreHasBeenSaved\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ score.resetCurrentScore();}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Exception\ occurred\ while\ resetting\ game:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ gameOver\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ towers.clear();}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ Gameflow}}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ Game::run()}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{while}\ (!window.should\_close())}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ processInput();}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ update();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ render();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ window.next\_frame();}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ Game::processInput()}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ bird.jump();}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ Game::handleThemeSelection(\textcolor{keywordtype}{int}\ themeIndex)}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ bird.setTheme(themeIndex);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ score.setTheme(themeIndex);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ currentTheme\ =\ themeIndex;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gameOver)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ reset();}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Exception\ occurred\ while\ changing\ theme:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Theme\ change\ failed.\ Staying\ with\ current\ theme."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ Update\ game\ state}}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ Game::update()}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gameOver)}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ bird.update();}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ score.incrementScore();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tower.updatePosition();}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&t\ :\ towers)}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ t.updatePosition();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if(t.isOutOfScreen())\ \{}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ towers.erase(towers.begin(),\ towers.begin()\ +\ i);}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ i++;*/}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (time(0)\ ==\ current\_time\ +\ 3)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ current\_time\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(time(0));}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ towers.push\_back(Tower\{window,\ window.width()\});}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ towers.size()\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Colision\ detection}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ int(towers.size());\ i++)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (towers[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(i)].checkCollision(bird.returnXPos(),\ bird.returnYPos()))}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gameOver\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bird.dying())}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ gameOver\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ std::string\ Game::formatCurrentScore()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Score:\ "{}}\ +\ std::to\_string(score.getCurrentScore());}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keywordtype}{void}\ Game::render()}
+\DoxyCodeLine{00182\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ bird.renderBackground();}
+\DoxyCodeLine{00184\ \ \ \ \ bird.render();}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ TOWER\ LOGIC}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&t\ :\ towers)}
+\DoxyCodeLine{00188\ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ t.render();}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gameOver)}
+\DoxyCodeLine{00193\ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ window.drawScore(score.getCurrentScore(),\ \{10,\ 10\},\ white);}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ window.draw\_image(\{0,\ 0\},\ waitingScreen,\ window.width(),\ window.height());}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ window.draw\_text(\{10,\ 10\},\ formatCurrentScore(),}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (!bird.getTheme()\ ?\ black\ :\ white),}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fontSize);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ window.draw\_text(\{220,\ window.height()\ /\ 3\ *\ 2\},\ \textcolor{stringliteral}{"{}Hvilken\ modus\ vil\ du\ spille?"{}},}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ score.loadHighScoresFromFile();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Highscores\ and\ other\ text}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ topScores\ =\ score.getFormattedTopScores();}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ window.draw\_text(\{0,\ 100\},\ topScores[0],}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ black,\ fontSize,\ font);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ window.draw\_text(\{300,\ 100\},\ topScores[1],}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ window.draw\_text(\{550,\ 100\},\ topScores[2],}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ window.draw\_text(\{0,\ 500\},\ \textcolor{stringliteral}{"{}Trykk\ for\ å\ hoppe"{}},}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ window.draw\_text(\{250,\ 500\},\ \textcolor{stringliteral}{"{}Hold\ inne\ for\ å\ flyte"{}},}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ window.draw\_text(\{520,\ 500\},\ \textcolor{stringliteral}{"{}Trykk\ for\ å\ skifte\ retning"{}},}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ white,\ fontSize,\ font);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ new\ highscore}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (score.isNewHighScore())}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!scoreHasBeenSaved)}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ score.updateAndSaveHighScore();}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scoreHasBeenSaved\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ TDT4102::Point\ centerPos\ =\ \{window.width()\ /\ 2\ -\/\ 150,\ window.height()\ /\ 2\ -\/\ 50\};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_text(centerPos,\ newHighscore,\ success,\ fontSize,\ font);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keyboard\ controls\ as\ for\ testing}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (window.is\_key\_down(KeyboardKey::KEY\_1))}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ handleThemeSelection(0);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (window.is\_key\_down(KeyboardKey::KEY\_2))}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ handleThemeSelection(1);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (window.is\_key\_down(KeyboardKey::KEY\_3))}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ handleThemeSelection(2);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,48 @@
+\doxysection{Tower.\+h}
+\label{_tower_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TOWER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TOWER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}AnimationWindow.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Image.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Point.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ TOWER\_WIDTH\ =\ 50;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ SPEED\ =\ 1;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ SPACE\_INBETWEEN\ =\ 150;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }Tower\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ TDT4102::AnimationWindow\ \&window;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ TDT4102::Image\ spriteup;}
+\DoxyCodeLine{00017\ \ \ \ \ TDT4102::Image\ spritedown;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ height\_upper;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ height\_lower;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ TDT4102::Point\ position\_lower;}
+\DoxyCodeLine{00023\ \ \ \ \ TDT4102::Point\ position\_upper;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ space\_between;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ yPosition\_upper;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ yPosition\_lower;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ xPosition;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ outOfScreen;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ Tower(TDT4102::AnimationWindow\ \&gameWindow,\ \textcolor{keywordtype}{int}\ xPosition);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ updatePosition();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkCollision(\textcolor{keywordtype}{int}\ birdX,\ \textcolor{keywordtype}{int}\ birdY)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOutOfScreen()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

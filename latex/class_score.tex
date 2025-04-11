@@ -1,0 +1,148 @@
+\doxysection{Score Class Reference}
+\label{class_score}\index{Score@{Score}}
+
+
+{\ttfamily \#include $<$Score.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Score} (const std\+::string \&file\+Path="{}score.\+txt"{})
+\item 
+void \textbf{ reset\+Current\+Score} ()
+\item 
+void \textbf{ increment\+Score} ()
+\item 
+void \textbf{ set\+Theme} (int theme)
+\item 
+int \textbf{ get\+Current\+Score} () const
+\item 
+int \textbf{ get\+High\+Score} () const
+\item 
+bool \textbf{ is\+New\+High\+Score} () const
+\item 
+void \textbf{ update\+And\+Save\+High\+Score} ()
+\item 
+void \textbf{ load\+High\+Scores\+From\+File} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \textbf{ get\+Formatted\+Top\+Scores} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \textbf{ 8} of file \textbf{ Score.\+h}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{Score@{Score}!Score@{Score}}
+\index{Score@{Score}!Score@{Score}}
+\doxysubsubsection{Score()}
+{\footnotesize\ttfamily \label{class_score_afc3df66054ace64d543454a953eb7e4c} 
+Score\+::\+Score (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{ = {\ttfamily "{}score.txt"{}}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 7} of file \textbf{ Score.\+cpp}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\index{Score@{Score}!getCurrentScore@{getCurrentScore}}
+\index{getCurrentScore@{getCurrentScore}!Score@{Score}}
+\doxysubsubsection{getCurrentScore()}
+{\footnotesize\ttfamily \label{class_score_a44a0eabd0756ee0a31424f480f6edc48} 
+int Score\+::get\+Current\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!getFormattedTopScores@{getFormattedTopScores}}
+\index{getFormattedTopScores@{getFormattedTopScores}!Score@{Score}}
+\doxysubsubsection{getFormattedTopScores()}
+{\footnotesize\ttfamily \label{class_score_a392a60bd73a7958de81d97eca005fd15} 
+std\+::vector$<$ std\+::string $>$ Score\+::get\+Formatted\+Top\+Scores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 90} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!getHighScore@{getHighScore}}
+\index{getHighScore@{getHighScore}!Score@{Score}}
+\doxysubsubsection{getHighScore()}
+{\footnotesize\ttfamily \label{class_score_a526c8a1de558b6d4454ed648dc84152e} 
+int Score\+::get\+High\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \textbf{ 35} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!incrementScore@{incrementScore}}
+\index{incrementScore@{incrementScore}!Score@{Score}}
+\doxysubsubsection{incrementScore()}
+{\footnotesize\ttfamily \label{class_score_ab13be2a3a9df076123322cabdb7bdbcd} 
+void Score\+::increment\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 18} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!isNewHighScore@{isNewHighScore}}
+\index{isNewHighScore@{isNewHighScore}!Score@{Score}}
+\doxysubsubsection{isNewHighScore()}
+{\footnotesize\ttfamily \label{class_score_a68e3f72fa127d3c47f0964d198a6c428} 
+bool Score\+::is\+New\+High\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \textbf{ 39} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!loadHighScoresFromFile@{loadHighScoresFromFile}}
+\index{loadHighScoresFromFile@{loadHighScoresFromFile}!Score@{Score}}
+\doxysubsubsection{loadHighScoresFromFile()}
+{\footnotesize\ttfamily \label{class_score_ae3aed930f500738c2b3ef7c399835875} 
+void Score\+::load\+High\+Scores\+From\+File (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 50} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!resetCurrentScore@{resetCurrentScore}}
+\index{resetCurrentScore@{resetCurrentScore}!Score@{Score}}
+\doxysubsubsection{resetCurrentScore()}
+{\footnotesize\ttfamily \label{class_score_a01993717fb29afb1333bbaa08e3452a0} 
+void Score\+::reset\+Current\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 14} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!setTheme@{setTheme}}
+\index{setTheme@{setTheme}!Score@{Score}}
+\doxysubsubsection{setTheme()}
+{\footnotesize\ttfamily \label{class_score_a66c7d39d30b0fd77bea1025e262bec14} 
+void Score\+::set\+Theme (\begin{DoxyParamCaption}\item[{int}]{theme}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Score.\+cpp}.
+
+\index{Score@{Score}!updateAndSaveHighScore@{updateAndSaveHighScore}}
+\index{updateAndSaveHighScore@{updateAndSaveHighScore}!Score@{Score}}
+\doxysubsubsection{updateAndSaveHighScore()}
+{\footnotesize\ttfamily \label{class_score_aa9f9c22521f690129ab6d733664c4a09} 
+void Score\+::update\+And\+Save\+High\+Score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 43} of file \textbf{ Score.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Score.\+h}\item 
+\textbf{ Score.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\doxysection{Score.\+h}
+\label{_score_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCORE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCORE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }Score\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::filesystem::path\ scoreFilePath;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ currentScore;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ currentTheme;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_THEMES\ =\ 3;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ highScores[MAX\_THEMES];}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ saveHighScoresToFile();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<std::string>\ themeNames\ =\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Fugl"{}},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Fisk"{}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Romvesen"{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<std::string>\ formatedTopScores;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ Score(\textcolor{keyword}{const}\ std::string\ \&filePath\ =\ \textcolor{stringliteral}{"{}score.txt"{}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ resetCurrentScore();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ incrementScore();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ setTheme(\textcolor{keywordtype}{int}\ theme);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ getCurrentScore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ getHighScore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ isNewHighScore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ updateAndSaveHighScore();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ loadHighScoresFromFile();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<std::string>\ getFormattedTopScores();}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCORE\_H}}
+
+\end{DoxyCode}

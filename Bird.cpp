@@ -21,8 +21,9 @@ Bird::Bird(TDT4102::AnimationWindow &gameWindow) : window(gameWindow),
     generateRandomIntervals();
 }
 
-//Generating the trails so they appear randomly
+
 void Bird::generateRandomIntervals() {
+    ///Lager random verdier for når trailene skal oppdateres
     std::uniform_int_distribution<int> trailDist(
         static_cast<int>(trailUpdateInterval * 0.6),
         static_cast<int>(trailUpdateInterval * 1.4)
@@ -32,6 +33,7 @@ void Bird::generateRandomIntervals() {
 }
 
 void Bird::reset() {
+    /// Resetter variablene til fuglen når man starter ett nytt spill
     xPosition = window.width() / 2;
     yPosition = BIRD_HEIGHT;
     isDead = false;
@@ -62,7 +64,8 @@ int Bird::getTheme() const {
 }
 
 void Bird::setTheme(int theme) {
-    currentTheme = static_cast<int>(theme % static_cast<int>(backgrounds.size()));
+    ///Oppdaterer variablene til temaet
+    currentTheme = theme % static_cast<int>(backgrounds.size());
     currentBackground = currentTheme;
     background = backgrounds[static_cast<size_t>(currentBackground)];
 
@@ -122,7 +125,7 @@ void Bird::update() {
     if (isDead)
         return;
     yPosition += gravity;
-    //Different logic for different themes
+    /// Ulik tyngdekraft for forskjellige temaer
     if (currentTheme == 0) {
         gravity += 0.3;
     } else if (currentTheme == 1) {
@@ -147,7 +150,7 @@ void Bird::update() {
     updatePosition();
 
     frameCounter++;
-    // A lot of work just for trails
+    /// Lager trails fra spritesene, og oppdaterer dem, ved å lagre verdiene før i en vector, og oppdatere dem med ny x og (og y for fisken) slik at de flytter seg bakover
     if (frameCounter >= currentTrailInterval) {
         frameCounter = 0;
         positionHistory.insert(positionHistory.begin(), position);
@@ -188,9 +191,10 @@ void Bird::update() {
 void Bird::jump() {
     if (isDead)
         return;
-    //Different logic for different themes
+    /// Ulik hopplogikk for forskjellige temaer
     bool spaceIsPressed = window.is_key_down(KeyboardKey::SPACE);
     spaceJustPressed = spaceIsPressed && !spaceWasPressed;
+    ///Må bruke en "smart" måte for å passe på at man bare holder inne på space på fiske-levelen.
     if (currentTheme == 1 and spaceIsPressed) {
         gravity = -gravity;
     }
@@ -207,6 +211,7 @@ void Bird::jump() {
     spaceWasPressed = spaceIsPressed;
 }
 
+/// bare returnerer verdier
 int Bird::returnXPos() const {
     return xPosition;
 }

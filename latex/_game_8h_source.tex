@@ -1,0 +1,72 @@
+\doxysection{Game.\+h}
+\label{_game_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameWindow.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Bird.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Score.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Tower.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <widgets/Button.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Game}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ Game(\textcolor{keywordtype}{int}\ width\ =\ 800,\ \textcolor{keywordtype}{int}\ height\ =\ 600);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ GameWindow\ window;}
+\DoxyCodeLine{00020\ \ \ \ \ Bird\ bird;}
+\DoxyCodeLine{00021\ \ \ \ \ Score\ score;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<Tower>\ towers;}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<TDT4102::Button>\ themeButtons;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ gameOver\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ scoreHasBeenSaved\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ currentTheme\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_time\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ birdThemeCallback();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ fishThemeCallback();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ alienThemeCallback();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ processInput();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ spawnObstacle();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ handleThemeSelection(\textcolor{keywordtype}{int}\ themeIndex);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ initButtons();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ showButtons();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::string\ formatCurrentScore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ TDT4102::Point\ textLocation\{50,\ window.height()\ /\ 4\};}
+\DoxyCodeLine{00055\ \ \ \ \ TDT4102::Image\ waitingScreen\ =\ TDT4102::Image(\textcolor{stringliteral}{"{}./assets/WaitingScreen.png"{}});}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ TDT4102::Image\ waitingScreen\ =\ TDT4102::Image("{}../assets/WaitingScreen.png"{});}}
+\DoxyCodeLine{00057\ \ \ \ \ std::string\ newHighscore\ =\ \textcolor{stringliteral}{"{}GRATULERER!\ NY\ REKORD!"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ TDT4102::Color\ error\ =\ TDT4102::Color::dark\_red;}
+\DoxyCodeLine{00059\ \ \ \ \ TDT4102::Color\ success\ =\ TDT4102::Color::green;}
+\DoxyCodeLine{00060\ \ \ \ \ TDT4102::Color\ white\ =\ TDT4102::Color::white;}
+\DoxyCodeLine{00061\ \ \ \ \ TDT4102::Color\ black\ =\ TDT4102::Color::black;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ fontSize\ =\ 20;}
+\DoxyCodeLine{00064\ \ \ \ \ TDT4102::Font\ font\ =\ TDT4102::Font::courier\_bold\_italic;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAME\_H}}
+
+\end{DoxyCode}

@@ -47,37 +47,37 @@ private:
     void generateRandomIntervals();
 
     //The path may differ based on system, use the one that works
-    // std::vector<TDT4102::Image> sprites = {
-    //     TDT4102::Image("./assets/BirdSprite.png"),
-    //     TDT4102::Image("./assets/FishSprite.png"),
-    //     TDT4102::Image("./assets/AlienSprite.png"),
-    //     TDT4102::Image("./assets/AlienSpriteFlipped.png")
-    // };
-    // std::vector<TDT4102::Image> backgrounds = {
-    //     TDT4102::Image("./assets/BirdBackground.png"),
-    //     TDT4102::Image("./assets/FishBackground.png"),
-    //     TDT4102::Image("./assets/AlienBackground.png")
-    // };std::vector<TDT4102::Image> trails = {
-    //     TDT4102::Image("./assets/BirdTrail.png"),
-    //     TDT4102::Image("./assets/FishTrail.png"),
-    //     TDT4102::Image("./assets/AlienTrail.png")
-    // };
     std::vector<TDT4102::Image> sprites = {
-        TDT4102::Image("../assets/BirdSprite.png"),
-        TDT4102::Image("../assets/FishSprite.png"),
-        TDT4102::Image("../assets/AlienSprite.png"),
-        TDT4102::Image("../assets/AlienSpriteFlipped.png")
+        TDT4102::Image("./assets/BirdSprite.png"),
+        TDT4102::Image("./assets/FishSprite.png"),
+        TDT4102::Image("./assets/AlienSprite.png"),
+        TDT4102::Image("./assets/AlienSpriteFlipped.png")
     };
     std::vector<TDT4102::Image> backgrounds = {
-        TDT4102::Image("../assets/BirdBackground.png"),
-        TDT4102::Image("../assets/FishBackground.png"),
-        TDT4102::Image("../assets/AlienBackground.png")
+        TDT4102::Image("./assets/BirdBackground.png"),
+        TDT4102::Image("./assets/FishBackground.png"),
+        TDT4102::Image("./assets/AlienBackground.png")
+    };std::vector<TDT4102::Image> trails = {
+        TDT4102::Image("./assets/BirdTrail.png"),
+        TDT4102::Image("./assets/FishTrail.png"),
+        TDT4102::Image("./assets/AlienTrail.png")
     };
-    std::vector<TDT4102::Image> trails = {
-        TDT4102::Image("../assets/BirdTrail.png"),
-        TDT4102::Image("../assets/FishTrail.png"),
-        TDT4102::Image("../assets/AlienTrail.png")
-    };
+    // std::vector<TDT4102::Image> sprites = {
+    //     TDT4102::Image("../assets/BirdSprite.png"),
+    //     TDT4102::Image("../assets/FishSprite.png"),
+    //     TDT4102::Image("../assets/AlienSprite.png"),
+    //     TDT4102::Image("../assets/AlienSpriteFlipped.png")
+    // };
+    // std::vector<TDT4102::Image> backgrounds = {
+    //     TDT4102::Image("../assets/BirdBackground.png"),
+    //     TDT4102::Image("../assets/FishBackground.png"),
+    //     TDT4102::Image("../assets/AlienBackground.png")
+    // };
+    // std::vector<TDT4102::Image> trails = {
+    //     TDT4102::Image("../assets/BirdTrail.png"),
+    //     TDT4102::Image("../assets/FishTrail.png"),
+    //     TDT4102::Image("../assets/AlienTrail.png")
+    // };
 
     TDT4102::AnimationWindow &window;
 

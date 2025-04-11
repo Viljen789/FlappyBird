@@ -1,0 +1,16 @@
+\doxysection{Game\+Window.\+cpp}
+\label{_game_window_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}GameWindow.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ GameWindow::GameWindow(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ std::string\ \&title)}
+\DoxyCodeLine{00005\ \ \ \ \ :\ TDT4102::AnimationWindow(0,\ 0,\ width,\ height,\ title)\ \{}
+\DoxyCodeLine{00006\ \}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ GameWindow::drawScore(\textcolor{keywordtype}{int}\ score,\ TDT4102::Point\ position,\ TDT4102::Color\ color)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ std::string\ scoreText\ =\ \textcolor{stringliteral}{"{}Score:\ "{}}\ +\ std::to\_string(score);}
+\DoxyCodeLine{00010\ \ \ \ \ draw\_text(position,\ scoreText,\ color);}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
