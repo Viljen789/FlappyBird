@@ -2,18 +2,15 @@
 
 #include <iostream>
 #include <string>
-#include <widgets/Button.h>
 
 Game::Game(int width, int height): window(width, height),
-                                   bird(window) {
-    reset();
-}
+                                   bird(window),
+                                   score("../score.txt") {
+    gameOver = true;
+    scoreHasBeenSaved = false;
 
-
-void Game::reset() {
-    bird.reset();
-    gameOver = false;
-    score = 0;
+    bird.setTheme(currentTheme);
+    score.setTheme(currentTheme);
 }
 
 void Game::run() {
@@ -27,74 +24,77 @@ void Game::run() {
 
 void Game::processInput() {
     bird.jump();
-
-    if (window.is_key_down(KeyboardKey::ENTER)) {
-        reset();
-    }
-
-
-    if (window.is_key_down(KeyboardKey::KEY_1)) {
-        bird.setTheme(0);
-    } else if (window.is_key_down(KeyboardKey::KEY_2)) {
-        bird.setTheme(1);
-    } else if (window.is_key_down(KeyboardKey::KEY_3)) {
-        bird.setTheme(2);
-    }
 }
 
+void Game::handleThemeSelection(int themeIndex) {
+    bird.setTheme(themeIndex);
+    score.setTheme(themeIndex);
 
-void Game::render() {
     if (gameOver) {
-        window.draw_text(textLocation, fail, textColor, fontSize, font);
-        // Kan kanskje bruke dette seinare idk
-        // TDT4102::Button birdButton{birdLocation, 100, 50, "Bird"};
-        // TDT4102::Button fishButton{fishLocation, 100, 50, "Fish"};
-        // TDT4102::Button alienButton{alienLocation, 100, 50, "Alien"};
-        //
-        // birdButton.setCallback([this]() { this->birdButtonCallback(); });
-        // fishButton.setCallback([this]() { this->fishButtonCallback(); });
-        // alienButton.setCallback([this]() { this->alienButtonCallback(); });
-        //
-        // static bool buttonsInitialized = false;
-        // if (!buttonsInitialized) {
-        //     birdButton.setCallback([this]() { this->birdButtonCallback(); });
-        //     fishButton.setCallback([this]() { this->fishButtonCallback(); });
-        //     alienButton.setCallback([this]() { this->alienButtonCallback(); });
-        //
-        //     window.add(birdButton);
-        //     window.add(fishButton);
-        //     window.add(alienButton);
-        //     buttonsInitialized = true;
-        // }
-        return;
+        reset();
     }
-
-    bird.renderBackground();
-    bird.render();
-
-    std::string scoreText = "Score: " + std::to_string(score);
-    std::string highScore = "Highscore: " + std::to_string(score);
-    window.draw_text({10, 10}, scoreText, TDT4102::Color::black, 20, TDT4102::Font::courier_bold_italic);
 }
 
 void Game::update() {
+    if (!gameOver) {
+        bird.update();
+        score.incrementScore();
 
-    bird.update();
-
-
-    //kollisjonslogikk
-
-    if (bird.dying()) {
-        gameOver = true;
+        if (bird.dying()) {
+            gameOver = true;
+        }
     }
-
-    score++;
 }
 
+std::string Game::formatCurrentScore() const {
+    return "Score: " + std::to_string(score.getCurrentScore());
+}
+
+void Game::render() {
+    bird.renderBackground();
+
+    bird.render();
+
+    if (!gameOver) {
+        window.draw_text({10, 10}, formatCurrentScore(), black, fontSize);
+    } else {
+        window.draw_image({0, 0}, waitingScreen, window.width(), window.height());
+        window.draw_text({10, 10}, formatCurrentScore(), (!bird.getTheme()?black:white), fontSize);
+
+        window.draw_text({220, window.height() / 3}, "Hvilken modus vil du spille?", white, fontSize, font);
+        window.draw_text({0, 100}, score.getFormattedTopScores()[0], black, fontSize, font);
+        window.draw_text({350, 100}, score.getFormattedTopScores()[1], white, fontSize, font);
+        window.draw_text({700, 100}, score.getFormattedTopScores()[2], white, fontSize, font);
+
+        if (score.isNewHighScore() && !scoreHasBeenSaved) {
+            window.draw_text({textLocation.x, textLocation.y + 100}, newHighscore, success,
+                             fontSize, font);
+            score.updateAndSaveHighScore();
+            scoreHasBeenSaved = true;
+        }
+
+
+        window.draw_text({100, window.height() / 3 * 2}, "Trykk 1", black, 20, font);
+        window.draw_text({420, window.height() / 3 * 2}, "Trykk 2", white, 20, font);
+        window.draw_text({750, window.height() / 3 * 2}, "Trykk 3", white, 20, font);
+        if (window.is_key_down(KeyboardKey::KEY_1)) {
+            handleThemeSelection(0);
+        } else if (window.is_key_down(KeyboardKey::KEY_2)) {
+            handleThemeSelection(2);
+        } else if (window.is_key_down(KeyboardKey::KEY_3)) {
+            handleThemeSelection(1);
+        }
+    }
+}
 
 void Game::spawnObstacle() {
-    //Vegard fikse
+    // Vegard fikse
 }
 
+void Game::reset() {
+    gameOver = false;
+    scoreHasBeenSaved = false;
 
-
+    bird.reset();
+    score.resetCurrentScore();
+}

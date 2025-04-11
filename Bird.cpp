@@ -7,11 +7,11 @@ Bird::Bird(TDT4102::AnimationWindow &gameWindow) : window(gameWindow),
                                                    xPosition{0},
                                                    yPosition{0},
                                                    gravity{0},
+                                                   isDead{false},
+                                                   spaceWasPressed{false},
                                                    currentTheme{0},
                                                    currentBackground{0},
-                                                   currentSprite{0},
-                                                   isDead{false},
-                                                   spaceWasPressed{false} {
+                                                   currentSprite{0} {
     xPosition = window.width() / 2;
     yPosition = 0;
     updatePosition();
@@ -63,10 +63,14 @@ void Bird::reset() {
     updatePosition();
 }
 
+int Bird::getTheme() const {
+    return currentTheme;
+}
+
 void Bird::setTheme(int theme) {
-    currentTheme = theme % backgrounds.size();
+    currentTheme = static_cast<int>(theme % static_cast<int>(backgrounds.size()));
     currentBackground = currentTheme;
-    background = backgrounds[currentBackground];
+    background = backgrounds[static_cast<size_t>(currentBackground)];
 
     if (currentTheme == 0) {
         currentSprite = 0;
@@ -75,7 +79,7 @@ void Bird::setTheme(int theme) {
     } else {
         currentSprite = 2;
     }
-    sprite = sprites[currentSprite];
+    sprite = sprites[static_cast<size_t>(currentSprite)];
 
     updatePosition();
 }
@@ -93,7 +97,7 @@ void Bird::render() {
             if (i < bubbleXOffsets.size()) {
                 xOffset = static_cast<int>(bubbleXOffsets[i]);
             }
-            int trailSize = BIRD_WIDTH - (i * 3);
+            int trailSize = BIRD_WIDTH - static_cast<int>(i * 3);
             if (trailSize < 10) trailSize = 10;
 
             if (currentTheme == 0) {
@@ -174,7 +178,7 @@ void Bird::update() {
             if (i == bubbleXOffsets.size() - 1) {
                 bubbleXOffsets.pop_back();
                 if (i < positionHistory.size()) {
-                    positionHistory.erase(positionHistory.begin() + i);
+                    positionHistory.erase(positionHistory.begin() + static_cast<long>(i));
                 }
             }
         }
@@ -203,7 +207,7 @@ void Bird::jump() {
         } else if (currentTheme == 2) {
             gravity = -gravity;
             currentSprite = (currentSprite == 2) ? 3 : 2;
-            sprite = sprites[currentSprite];
+            sprite = sprites[static_cast<size_t>(currentSprite)];
         }
     }
 
@@ -213,5 +217,4 @@ void Bird::jump() {
 bool Bird::dying() const {
     return isDead;
 }
-
 

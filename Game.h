@@ -3,7 +3,7 @@
 
 #include "AnimationWindow.h"
 #include "Bird.h"
-
+#include "Score.h"
 
 class Game {
 public:
@@ -11,19 +11,14 @@ public:
 
     void run();
 
-    // void birdButtonCallback();
-    //
-    // void fishButtonCallback();
-    //
-    // void alienButtonCallback();
-
 private:
     TDT4102::AnimationWindow window;
     Bird bird;
+    Score score;
 
     bool gameOver = false;
-    int score = 0;
-
+    bool scoreHasBeenSaved = false;
+    int currentTheme = 0;
 
     void processInput();
 
@@ -35,16 +30,21 @@ private:
 
     void reset();
 
-    TDT4102::Point textLocation {50, window.height() / 3};
-    std::string fail = "Game over :( Trykk ENTER for å starte på nytt";
-    std::string newHighscore = "Gratulerer! Ny rekord!";
-    TDT4102::Color textColor = TDT4102::Color::dark_red;
-    int fontSize = 40;
-    TDT4102::Font font = TDT4102::Font::courier_bold_italic;
-    // TDT4102::Point birdLocation{window.width() / 4 * 1, window.height() / 3 * 2};
-    // TDT4102::Point fishLocation{window.width() / 4 * 2, window.height() / 3 * 2};
-    // TDT4102::Point alienLocation{window.width() / 4 * 3, window.height() / 3 * 2};
+    void handleThemeSelection(int themeIndex);
+    
+    std::string formatCurrentScore() const;
 
+    TDT4102::Point textLocation{50, window.height() / 4};
+    TDT4102::Image waitingScreen = TDT4102::Image("../assets/WaitingScreen.png");
+    std::string newHighscore = "Gratulerer! Ny rekord!";
+    TDT4102::Color error = TDT4102::Color::dark_red;
+    TDT4102::Color success = TDT4102::Color::green;
+    TDT4102::Color white = TDT4102::Color::white;
+    TDT4102::Color black = TDT4102::Color::black;
+
+    int fontSize = 30;
+    TDT4102::Font font = TDT4102::Font::courier_bold_italic;
+    bool start = 1;
 };
 
 #endif //GAME_H

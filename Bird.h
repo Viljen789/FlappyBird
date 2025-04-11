@@ -19,6 +19,8 @@ public:
     Bird(TDT4102::AnimationWindow &gameWindow);
 
     void setTheme(int theme);
+    
+    int getTheme() const;
 
     void reset();
 
@@ -90,4 +92,3 @@ private:
 };
 
 #endif // BIRD_H
-
