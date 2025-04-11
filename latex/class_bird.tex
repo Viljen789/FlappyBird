@@ -28,7 +28,7 @@ void \textbf{ jump} ()
 bool \textbf{ dying} () const
 \item 
 int \textbf{ return\+XPos} () const
-\item 
+\begin{DoxyCompactList}\small\item\em bare returnerer verdier \end{DoxyCompactList}\item 
 int \textbf{ return\+YPos} () const
 \item 
 TDT4102\+::\+Point \textbf{ get\+Position} () const
@@ -64,7 +64,7 @@ bool Bird\+::dying (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
-Definition at line \textbf{ 218} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 223} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!getPosition@{getPosition}}
 \index{getPosition@{getPosition}!Bird@{Bird}}
@@ -84,7 +84,7 @@ int Bird\+::get\+Theme (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) cons
 
 
 
-Definition at line \textbf{ 60} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 62} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!jump@{jump}}
 \index{jump@{jump}!Bird@{Bird}}
@@ -92,9 +92,11 @@ Definition at line \textbf{ 60} of file \textbf{ Bird.\+cpp}.
 {\footnotesize\ttfamily \label{class_bird_aaf8f7cdda8f072ee9d2643da8dc71ad6} 
 void Bird\+::jump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Ulik hopplogikk for forskjellige temaer
 
+Må bruke en "{}smart"{} måte for å passe på at man bare holder inne på space på fiske-\/levelen.
 
-Definition at line \textbf{ 188} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 191} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!render@{render}}
 \index{render@{render}!Bird@{Bird}}
@@ -104,7 +106,7 @@ void Bird\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \textbf{ 85} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 88} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!renderBackground@{renderBackground}}
 \index{renderBackground@{renderBackground}!Bird@{Bird}}
@@ -114,7 +116,7 @@ void Bird\+::render\+Background (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapti
 
 
 
-Definition at line \textbf{ 117} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 120} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!reset@{reset}}
 \index{reset@{reset}!Bird@{Bird}}
@@ -122,9 +124,9 @@ Definition at line \textbf{ 117} of file \textbf{ Bird.\+cpp}.
 {\footnotesize\ttfamily \label{class_bird_a89d40831dcd54751b9507f51bb98b4f6} 
 void Bird\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Resetter variablene til fuglen når man starter ett nytt spill
 
-
-Definition at line \textbf{ 34} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 35} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!returnXPos@{returnXPos}}
 \index{returnXPos@{returnXPos}!Bird@{Bird}}
@@ -134,7 +136,11 @@ int Bird\+::return\+XPos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) co
 
 
 
-Definition at line \textbf{ 210} of file \textbf{ Bird.\+cpp}.
+bare returnerer verdier 
+
+
+
+Definition at line \textbf{ 215} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!returnYPos@{returnYPos}}
 \index{returnYPos@{returnYPos}!Bird@{Bird}}
@@ -144,7 +150,7 @@ int Bird\+::return\+YPos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) co
 
 
 
-Definition at line \textbf{ 214} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 219} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!setTheme@{setTheme}}
 \index{setTheme@{setTheme}!Bird@{Bird}}
@@ -152,9 +158,9 @@ Definition at line \textbf{ 214} of file \textbf{ Bird.\+cpp}.
 {\footnotesize\ttfamily \label{class_bird_a5edacac201b0c929e86247f6659c1823} 
 void Bird\+::set\+Theme (\begin{DoxyParamCaption}\item[{int}]{theme}{}\end{DoxyParamCaption})}
 
+Oppdaterer variablene til temaet
 
-
-Definition at line \textbf{ 64} of file \textbf{ Bird.\+cpp}.
+Definition at line \textbf{ 66} of file \textbf{ Bird.\+cpp}.
 
 \index{Bird@{Bird}!trail@{trail}}
 \index{trail@{trail}!Bird@{Bird}}
@@ -168,9 +174,11 @@ void Bird\+::trail (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 {\footnotesize\ttfamily \label{class_bird_ae2718aad2ef1de73e399482ab6068324} 
 void Bird\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Different logic for different themes
+Ulik tyngdekraft for forskjellige temaer
 
-Definition at line \textbf{ 121} of file \textbf{ Bird.\+cpp}.
+Lager trails fra spritesene, og oppdaterer dem, ved å lagre verdiene før i en vector, og oppdatere dem med ny x og (og y for fisken) slik at de flytter seg bakover
+
+Definition at line \textbf{ 124} of file \textbf{ Bird.\+cpp}.
 
 
 

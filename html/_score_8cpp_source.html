@@ -88,106 +88,105 @@ $(function(){initNavTree('_score_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_score.html#a66c7d39d30b0fd77bea1025e262bec14">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_score.html#a66c7d39d30b0fd77bea1025e262bec14">Score::setTheme</a>(<span class="keywordtype">int</span> theme) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> (theme &gt;= 0 &amp;&amp; theme &lt; MAX_THEMES) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        currentTheme = theme;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Invalid theme index &quot;</span> &lt;&lt; theme &lt;&lt; <span class="stringliteral">&quot;. Using theme 0.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        currentTheme = 0;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (theme &gt;= 0 &amp;&amp; theme &lt; MAX_THEMES) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        currentTheme = theme;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Invalid theme index &quot;</span> &lt;&lt; theme &lt;&lt; <span class="stringliteral">&quot;. Using theme 0.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        currentTheme = 0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">   31</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">Score::getCurrentScore</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> currentScore;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">   32</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">Score::getCurrentScore</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">return</span> currentScore;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">   35</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">Score::getHighScore</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> highScores[currentTheme];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">   36</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">Score::getHighScore</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">return</span> highScores[currentTheme];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">   39</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">Score::isNewHighScore</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> currentScore &gt;= highScores[currentTheme];</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">   40</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">Score::isNewHighScore</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> currentScore &gt;= highScores[currentTheme];</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">Score::updateAndSaveHighScore</a>() {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">isNewHighScore</a>()) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        highScores[currentTheme] = currentScore;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        saveHighScoresToFile();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">Score::updateAndSaveHighScore</a>() {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">isNewHighScore</a>()) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        highScores[currentTheme] = currentScore;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        saveHighScoresToFile();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_score.html#ae3aed930f500738c2b3ef7c399835875">   50</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_score.html#ae3aed930f500738c2b3ef7c399835875">Score::loadHighScoresFromFile</a>() {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        std::ifstream inputFile(scoreFilePath);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">if</span> (!inputFile.is_open()) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Could not open score file. Using default scores.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">int</span> theme, score;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">while</span> (inputFile &gt;&gt; theme &gt;&gt; score) {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">if</span> (theme &gt;= 0 &amp;&amp; theme &lt; MAX_THEMES) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                highScores[theme] = score;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        inputFile.close();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error loading scores: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_score.html#ae3aed930f500738c2b3ef7c399835875">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_score.html#ae3aed930f500738c2b3ef7c399835875">Score::loadHighScoresFromFile</a>() {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        std::ifstream inputFile(scoreFilePath);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (!inputFile.is_open()) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;Could not open score file. Using default scores.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">int</span> theme, score;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">while</span> (inputFile &gt;&gt; theme &gt;&gt; score) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">if</span> (theme &gt;= 0 &amp;&amp; theme &lt; MAX_THEMES) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                highScores[theme] = score;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        inputFile.close();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error loading scores: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> Score::saveHighScoresToFile() {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        std::ofstream outputFile(scoreFilePath);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span> (!outputFile.is_open()) {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Could not open score file for writing.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; MAX_THEMES; ++i) {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            outputFile &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; highScores[i] &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        outputFile.close();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error saving scores: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">//formatting the highscores</span></div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_score.html#a392a60bd73a7958de81d97eca005fd15">   90</a></span>std::vector&lt;std::string&gt; <a class="code hl_function" href="class_score.html#a392a60bd73a7958de81d97eca005fd15">Score::getFormattedTopScores</a>() {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    formatedTopScores.clear();</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; MAX_THEMES; ++i) {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        std::string scoreText = themeNames[i] + <span class="stringliteral">&quot;: &quot;</span> + std::to_string(highScores[i]);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        formatedTopScores.push_back(scoreText);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> formatedTopScores;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> Score::saveHighScoresToFile() {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        std::ofstream outputFile(scoreFilePath);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (!outputFile.is_open()) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Could not open score file for writing.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; MAX_THEMES; ++i) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            outputFile &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; highScores[i] &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        outputFile.close();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error saving scores: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_score.html#a392a60bd73a7958de81d97eca005fd15">   92</a></span>std::vector&lt;std::string&gt; <a class="code hl_function" href="class_score.html#a392a60bd73a7958de81d97eca005fd15">Score::getFormattedTopScores</a>() {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    formatedTopScores.clear();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; MAX_THEMES; ++i) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        std::string scoreText = themeNames[i] + <span class="stringliteral">&quot;: &quot;</span> + std::to_string(highScores[i]);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        formatedTopScores.push_back(scoreText);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">return</span> formatedTopScores;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
 </div>
 <div class="ttc" id="a_score_8h_html"><div class="ttname"><a href="_score_8h.html">Score.h</a></div></div>
 <div class="ttc" id="aclass_score_html_a01993717fb29afb1333bbaa08e3452a0"><div class="ttname"><a href="class_score.html#a01993717fb29afb1333bbaa08e3452a0">Score::resetCurrentScore</a></div><div class="ttdeci">void resetCurrentScore()</div><div class="ttdef"><b>Definition</b> <a href="#l00014">Score.cpp:14</a></div></div>
-<div class="ttc" id="aclass_score_html_a392a60bd73a7958de81d97eca005fd15"><div class="ttname"><a href="class_score.html#a392a60bd73a7958de81d97eca005fd15">Score::getFormattedTopScores</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getFormattedTopScores()</div><div class="ttdef"><b>Definition</b> <a href="#l00090">Score.cpp:90</a></div></div>
-<div class="ttc" id="aclass_score_html_a44a0eabd0756ee0a31424f480f6edc48"><div class="ttname"><a href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">Score::getCurrentScore</a></div><div class="ttdeci">int getCurrentScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00031">Score.cpp:31</a></div></div>
-<div class="ttc" id="aclass_score_html_a526c8a1de558b6d4454ed648dc84152e"><div class="ttname"><a href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">Score::getHighScore</a></div><div class="ttdeci">int getHighScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Score.cpp:35</a></div></div>
+<div class="ttc" id="aclass_score_html_a392a60bd73a7958de81d97eca005fd15"><div class="ttname"><a href="class_score.html#a392a60bd73a7958de81d97eca005fd15">Score::getFormattedTopScores</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getFormattedTopScores()</div><div class="ttdef"><b>Definition</b> <a href="#l00092">Score.cpp:92</a></div></div>
+<div class="ttc" id="aclass_score_html_a44a0eabd0756ee0a31424f480f6edc48"><div class="ttname"><a href="class_score.html#a44a0eabd0756ee0a31424f480f6edc48">Score::getCurrentScore</a></div><div class="ttdeci">int getCurrentScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Score.cpp:32</a></div></div>
+<div class="ttc" id="aclass_score_html_a526c8a1de558b6d4454ed648dc84152e"><div class="ttname"><a href="class_score.html#a526c8a1de558b6d4454ed648dc84152e">Score::getHighScore</a></div><div class="ttdeci">int getHighScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Score.cpp:36</a></div></div>
 <div class="ttc" id="aclass_score_html_a66c7d39d30b0fd77bea1025e262bec14"><div class="ttname"><a href="class_score.html#a66c7d39d30b0fd77bea1025e262bec14">Score::setTheme</a></div><div class="ttdeci">void setTheme(int theme)</div><div class="ttdef"><b>Definition</b> <a href="#l00022">Score.cpp:22</a></div></div>
-<div class="ttc" id="aclass_score_html_a68e3f72fa127d3c47f0964d198a6c428"><div class="ttname"><a href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">Score::isNewHighScore</a></div><div class="ttdeci">bool isNewHighScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00039">Score.cpp:39</a></div></div>
-<div class="ttc" id="aclass_score_html_aa9f9c22521f690129ab6d733664c4a09"><div class="ttname"><a href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">Score::updateAndSaveHighScore</a></div><div class="ttdeci">void updateAndSaveHighScore()</div><div class="ttdef"><b>Definition</b> <a href="#l00043">Score.cpp:43</a></div></div>
+<div class="ttc" id="aclass_score_html_a68e3f72fa127d3c47f0964d198a6c428"><div class="ttname"><a href="class_score.html#a68e3f72fa127d3c47f0964d198a6c428">Score::isNewHighScore</a></div><div class="ttdeci">bool isNewHighScore() const</div><div class="ttdef"><b>Definition</b> <a href="#l00040">Score.cpp:40</a></div></div>
+<div class="ttc" id="aclass_score_html_aa9f9c22521f690129ab6d733664c4a09"><div class="ttname"><a href="class_score.html#aa9f9c22521f690129ab6d733664c4a09">Score::updateAndSaveHighScore</a></div><div class="ttdeci">void updateAndSaveHighScore()</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Score.cpp:44</a></div></div>
 <div class="ttc" id="aclass_score_html_ab13be2a3a9df076123322cabdb7bdbcd"><div class="ttname"><a href="class_score.html#ab13be2a3a9df076123322cabdb7bdbcd">Score::incrementScore</a></div><div class="ttdeci">void incrementScore()</div><div class="ttdef"><b>Definition</b> <a href="#l00018">Score.cpp:18</a></div></div>
-<div class="ttc" id="aclass_score_html_ae3aed930f500738c2b3ef7c399835875"><div class="ttname"><a href="class_score.html#ae3aed930f500738c2b3ef7c399835875">Score::loadHighScoresFromFile</a></div><div class="ttdeci">void loadHighScoresFromFile()</div><div class="ttdef"><b>Definition</b> <a href="#l00050">Score.cpp:50</a></div></div>
+<div class="ttc" id="aclass_score_html_ae3aed930f500738c2b3ef7c399835875"><div class="ttname"><a href="class_score.html#ae3aed930f500738c2b3ef7c399835875">Score::loadHighScoresFromFile</a></div><div class="ttdeci">void loadHighScoresFromFile()</div><div class="ttdef"><b>Definition</b> <a href="#l00051">Score.cpp:51</a></div></div>
 <div class="ttc" id="aclass_score_html_afc3df66054ace64d543454a953eb7e4c"><div class="ttname"><a href="class_score.html#afc3df66054ace64d543454a953eb7e4c">Score::Score</a></div><div class="ttdeci">Score(const std::string &amp;filePath=&quot;score.txt&quot;)</div><div class="ttdef"><b>Definition</b> <a href="#l00007">Score.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -71,8 +71,8 @@ $(function(){initNavTree('_tower_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    yPosition_upper = 0;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    outOfScreen = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::random_device rd;  <span class="comment">// obtain a random number from hardware</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::mt19937 gen(rd()); <span class="comment">// seed the generator</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::random_device rd;  </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::mt19937 gen(rd()); </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::uniform_int_distribution&lt;&gt; distr(200, window.height() - 200);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    height_upper = distr(gen);</div>
@@ -119,15 +119,15 @@ $(function(){initNavTree('_tower_8cpp_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_tower.html#a78c7672e728815f8152cb8290fcbdc73">   50</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_tower.html#a78c7672e728815f8152cb8290fcbdc73">Tower::checkCollision</a>(<span class="keywordtype">int</span> birdX, <span class="keywordtype">int</span> birdY)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (birdX &gt; xPosition - <a class="code hl_variable" href="_tower_8h.html#aaecb941a8b8a010ff6f3f1198b6832c1">TOWER_WIDTH</a> / 2 &amp;&amp; birdX &lt; xPosition + <a class="code hl_variable" href="_tower_8h.html#aaecb941a8b8a010ff6f3f1198b6832c1">TOWER_WIDTH</a> / 2)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">if</span> (birdY &lt; height_upper || birdY &gt; yPosition_lower)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (birdX &gt; xPosition - <a class="code hl_variable" href="_tower_8h.html#aaecb941a8b8a010ff6f3f1198b6832c1">TOWER_WIDTH</a> / 2 &amp;&amp; birdX &lt; xPosition + <a class="code hl_variable" href="_tower_8h.html#aaecb941a8b8a010ff6f3f1198b6832c1">TOWER_WIDTH</a> / 2)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (birdY &lt; height_upper || birdY &gt; yPosition_lower)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
 </div>
 <div class="ttc" id="a_game_8h_html"><div class="ttname"><a href="_game_8h.html">Game.h</a></div></div>
 <div class="ttc" id="a_tower_8h_html"><div class="ttname"><a href="_tower_8h.html">Tower.h</a></div></div>

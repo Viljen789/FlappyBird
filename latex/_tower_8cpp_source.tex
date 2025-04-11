@@ -12,8 +12,8 @@
 \DoxyCodeLine{00009\ \{}
 \DoxyCodeLine{00010\ \ \ \ \ yPosition\_upper\ =\ 0;}
 \DoxyCodeLine{00011\ \ \ \ \ outOfScreen\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00012\ \ \ \ \ std::random\_device\ rd;\ \ \textcolor{comment}{//\ obtain\ a\ random\ number\ from\ hardware}}
-\DoxyCodeLine{00013\ \ \ \ \ std::mt19937\ gen(rd());\ \textcolor{comment}{//\ seed\ the\ generator}}
+\DoxyCodeLine{00012\ \ \ \ \ std::random\_device\ rd;\ \ }
+\DoxyCodeLine{00013\ \ \ \ \ std::mt19937\ gen(rd());\ }
 \DoxyCodeLine{00014\ \ \ \ \ std::uniform\_int\_distribution<>\ distr(200,\ window.height()\ -\/\ 200);}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \ \ \ \ height\_upper\ =\ distr(gen);}
@@ -52,14 +52,14 @@
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \textcolor{keywordtype}{bool}\ Tower::checkCollision(\textcolor{keywordtype}{int}\ birdX,\ \textcolor{keywordtype}{int}\ birdY)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00051\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (birdX\ >\ xPosition\ -\/\ TOWER\_WIDTH\ /\ 2\ \&\&\ birdX\ <\ xPosition\ +\ TOWER\_WIDTH\ /\ 2)}
-\DoxyCodeLine{00053\ \ \ \ \ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (birdY\ <\ height\_upper\ ||\ birdY\ >\ yPosition\_lower)}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00058\ \ \ \ \ \}}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (birdX\ >\ xPosition\ -\/\ TOWER\_WIDTH\ /\ 2\ \&\&\ birdX\ <\ xPosition\ +\ TOWER\_WIDTH\ /\ 2)}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (birdY\ <\ height\_upper\ ||\ birdY\ >\ yPosition\_lower)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00061\ \}}
 
 \end{DoxyCode}

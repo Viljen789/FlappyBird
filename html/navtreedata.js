@@ -25,7 +25,11 @@
 var NAVTREE =
 [
   [ "FlappyBird", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", null ],
+    [ "Prosjekt 4102", "md__r_e_a_d_m_e.html", [
+      [ "Oversikt", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Teknologi og KI-verktøy", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Implementasjon", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

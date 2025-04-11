@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FlappyBird: README</title>
+<title>FlappyBird: Prosjekt 4102</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,11 +56,48 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(true); });
 </script>
 <div id="doc-content">
 <div><div class="header">
-  <div class="headertitle"><div class="title">README</div></div>
+  <div class="headertitle"><div class="title">Prosjekt 4102</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Prosjekt 4102</p>
-<p>Programmet er en versjon av det kjente spillet flappybird, men her med 2 andre versjoner, nemlig at man kan spille som en fisk eller ett romvesen, og gravitasjonen/spillmekanikken tilpasses miljøet ditt. Gravitasjonen er </p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<p>Programmet er en versjon av det kjente spillet <em>Flappy <a class="el" href="class_bird.html">Bird</a></em>, men med to ekstra varianter. Du kan altså velge å spille som en fisk eller et romvesen, og gravitasjonen/spillmekanikken tilpasses det miljøet du spiller i.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md2"></a>
+Oversikt</h1>
+<p>I prosjektet er det brukt flere moduler som samarbeider for å skape en komplett spillopplevelse. For det meste finner du detaljerte kommentarer underveis i koden, men i korte trekk blir følgende moduler brukt:</p>
+<ul>
+<li><b><a class="el" href="class_score.html">Score</a>:</b> Regner ut poengsummen.</li>
+<li><b><a class="el" href="class_game.html">Game</a>:</b> Lager og displayer selve spillet.</li>
+<li><b><a class="el" href="class_bird.html">Bird</a>:</b> Håndterer logikken med spriten.</li>
+<li><b><a class="el" href="class_tower.html">Tower</a>:</b> Inneholder logikken bak tårnene.</li>
+<li><b><a class="el" href="class_game_window.html">GameWindow</a>:</b> Viser poengsummen live på skjermen.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md4"></a>
+Teknologi og KI-verktøy</h1>
+<p>Prosjektet har benyttet moderne KI-modeller til å løse enkelte utfordringer:</p>
+<ul>
+<li><b>ChatGPT 4o</b> har blitt brukt til bildegenerering for alle assets, med unntak av tårnene.</li>
+<li><b>Copilot</b> ble brukt for å finne ut hvordan man kan registrere space-tastetrykket bare én gang. Det var et problem med romvesenet der den snudde seg mange ganger – ofte et partall antall ganger veldig raskt – noe som førte til at retningen ikke endret seg. Løsningen var å legge til en boolsk variabel som registrerer om figuren har snudd seg eller ikke, og sørge for at den bare snur seg én gang per mellomrom trykk.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md6"></a>
+Implementasjon</h1>
+<p>Prosjektet presenterer en kreativ vri på en klassiker ved å:</p>
+<ul>
+<li><b>Tilbye flere spillfigurer:</b> Avhengig av om du velger fugl, fisk eller romvesen, blir gravitasjonen og spillmekanikken tilpasset slik at hver figur får et unikt miljø.</li>
+<li><b>Modulær oppbygging:</b><ul>
+<li><em><a class="el" href="class_score.html">Score</a></em> beregner poengsummen.</li>
+<li><em><a class="el" href="class_game.html">Game</a></em> styrer oppretting og display av spillet.</li>
+<li><em><a class="el" href="class_bird.html">Bird</a></em> håndterer logikken bak figurens oppførsel og sprite.</li>
+<li><em><a class="el" href="class_tower.html">Tower</a></em> har ansvar for hindringer/logikken til tårnene.</li>
+<li><em><a class="el" href="class_game_window.html">GameWindow</a></em> sørger for at poengsummen vises live.</li>
+</ul>
+</li>
+<li><b>Kommentarer i koden:</b> Det finnes omfattende kommentarer underveis i koden som forklarer de ulike delene av implementasjonen.</li>
+</ul>
+<hr  />
+<p>Dette prosjektet er et godt eksempel på hvordan en tradisjonell spillidé kan få nytt liv med bruk av moderne teknologi og KI-verktøy. Lykke til, og nyt spillopplevelsen! </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

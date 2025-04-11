@@ -1,5 +1,52 @@
-\chapter{README}
-\label{md__r_e_a_d_m_e}\index{README@{README}}
-Prosjekt 4102
+\chapter{Prosjekt 4102}
+\label{md__r_e_a_d_m_e}\index{Prosjekt 4102@{Prosjekt 4102}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
 
-Programmet er en versjon av det kjente spillet flappybird, men her med 2 andre versjoner, nemlig at man kan spille som en fisk eller ett romvesen, og gravitasjonen/spillmekanikken tilpasses miljøet ditt. Gravitasjonen er 
+
+Programmet er en versjon av det kjente spillet {\itshape Flappy \doxyref{Bird}{p.}{class_bird}}, men med to ekstra varianter. Du kan altså velge å spille som en fisk eller et romvesen, og gravitasjonen/spillmekanikken tilpasses det miljøet du spiller i.
+
+\DoxyHorRuler{0}
+\doxysection{Oversikt}\label{md__r_e_a_d_m_e_autotoc_md2}
+I prosjektet er det brukt flere moduler som samarbeider for å skape en komplett spillopplevelse. For det meste finner du detaljerte kommentarer underveis i koden, men i korte trekk blir følgende moduler brukt\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxyref{Score}{p.}{class_score}\+:}} Regner ut poengsummen.
+\item {\bfseries{\doxyref{Game}{p.}{class_game}\+:}} Lager og displayer selve spillet.
+\item {\bfseries{\doxyref{Bird}{p.}{class_bird}\+:}} Håndterer logikken med spriten.
+\item {\bfseries{\doxyref{Tower}{p.}{class_tower}\+:}} Inneholder logikken bak tårnene.
+\item {\bfseries{\doxyref{Game\+Window}{p.}{class_game_window}\+:}} Viser poengsummen live på skjermen.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\doxysection{Teknologi og KI-\/verktøy}\label{md__r_e_a_d_m_e_autotoc_md4}
+Prosjektet har benyttet moderne KI-\/modeller til å løse enkelte utfordringer\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Chat\+GPT 4o}} har blitt brukt til bildegenerering for alle assets, med unntak av tårnene.
+\item {\bfseries{Copilot}} ble brukt for å finne ut hvordan man kan registrere space-\/tastetrykket bare én gang. Det var et problem med romvesenet der den snudde seg mange ganger – ofte et partall antall ganger veldig raskt – noe som førte til at retningen ikke endret seg. Løsningen var å legge til en boolsk variabel som registrerer om figuren har snudd seg eller ikke, og sørge for at den bare snur seg én gang per mellomrom trykk.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\doxysection{Implementasjon}\label{md__r_e_a_d_m_e_autotoc_md6}
+Prosjektet presenterer en kreativ vri på en klassiker ved å\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Tilbye flere spillfigurer\+:}} Avhengig av om du velger fugl, fisk eller romvesen, blir gravitasjonen og spillmekanikken tilpasset slik at hver figur får et unikt miljø.
+\item {\bfseries{Modulær oppbygging\+:}}
+\begin{DoxyItemize}
+\item {\itshape \doxyref{Score}{p.}{class_score}} beregner poengsummen.
+\item {\itshape \doxyref{Game}{p.}{class_game}} styrer oppretting og display av spillet.
+\item {\itshape \doxyref{Bird}{p.}{class_bird}} håndterer logikken bak figurens oppførsel og sprite.
+\item {\itshape \doxyref{Tower}{p.}{class_tower}} har ansvar for hindringer/logikken til tårnene.
+\item {\itshape \doxyref{Game\+Window}{p.}{class_game_window}} sørger for at poengsummen vises live.
+\end{DoxyItemize}
+\item {\bfseries{Kommentarer i koden\+:}} Det finnes omfattende kommentarer underveis i koden som forklarer de ulike delene av implementasjonen.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+Dette prosjektet er et godt eksempel på hvordan en tradisjonell spillidé kan få nytt liv med bruk av moderne teknologi og KI-\/verktøy. Lykke til, og nyt spillopplevelsen! 

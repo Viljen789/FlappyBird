@@ -26,17 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1716118-3766-4212-b489-91c4917916c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bird.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Bird.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bird.h" beforeDir="false" afterPath="$PROJECT_DIR$/Bird.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameWindow.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Score.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Score.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tower.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tower.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meson.build" beforeDir="false" afterPath="$PROJECT_DIR$/meson.build" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +174,7 @@
       <workItem from="1744371106243" duration="4100000" />
       <workItem from="1744392839641" duration="318000" />
       <workItem from="1744393161579" duration="7241000" />
-      <workItem from="1744400418165" duration="2939000" />
+      <workItem from="1744400418165" duration="4075000" />
     </task>
     <servers />
   </component>

@@ -24,201 +24,199 @@
 \DoxyCodeLine{00021\ \ \ \ \ generateRandomIntervals();}
 \DoxyCodeLine{00022\ \}}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{comment}{//Generating\ the\ trails\ so\ they\ appear\ randomly}}
+\DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ Bird::generateRandomIntervals()\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ std::uniform\_int\_distribution<int>\ trailDist(}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(trailUpdateInterval\ *\ 0.6),}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(trailUpdateInterval\ *\ 1.4)}
-\DoxyCodeLine{00029\ \ \ \ \ );}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ currentTrailInterval\ =\ trailDist(rng);}
-\DoxyCodeLine{00032\ \}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ Bird::reset()\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ xPosition\ =\ window.width()\ /\ 2;}
-\DoxyCodeLine{00036\ \ \ \ \ yPosition\ =\ BIRD\_HEIGHT;}
-\DoxyCodeLine{00037\ \ \ \ \ isDead\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00038\ \ \ \ \ spaceWasPressed\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00039\ \ \ \ \ spaceJustPressed\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ setTheme(currentTheme);}
+\DoxyCodeLine{00027\ \ \ \ \ std::uniform\_int\_distribution<int>\ trailDist(}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(trailUpdateInterval\ *\ 0.6),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(trailUpdateInterval\ *\ 1.4)}
+\DoxyCodeLine{00030\ \ \ \ \ );}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ currentTrailInterval\ =\ trailDist(rng);}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ Bird::reset()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ xPosition\ =\ window.width()\ /\ 2;}
+\DoxyCodeLine{00038\ \ \ \ \ yPosition\ =\ BIRD\_HEIGHT;}
+\DoxyCodeLine{00039\ \ \ \ \ isDead\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00040\ \ \ \ \ spaceWasPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ spaceJustPressed\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0\ ||\ currentTheme\ ==\ 1)\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ gravity\ =\ window.height()\ /\ 150.0;}
-\DoxyCodeLine{00045\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ setTheme(currentTheme);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0\ ||\ currentTheme\ ==\ 1)\ \{}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ gravity\ =\ window.height()\ /\ 150.0;}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ currentSprite\ =\ 2;}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ sprite\ =\ sprites[currentSprite];}
-\DoxyCodeLine{00049\ \ \ \ \ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ positionHistory.clear();}
-\DoxyCodeLine{00052\ \ \ \ \ XOffsets.clear();}
-\DoxyCodeLine{00053\ \ \ \ \ frameCounter\ =\ 0;}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ generateRandomIntervals();}
+\DoxyCodeLine{00047\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ gravity\ =\ window.height()\ /\ 150.0;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ currentSprite\ =\ 2;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ sprite\ =\ sprites[currentSprite];}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ positionHistory.clear();}
+\DoxyCodeLine{00054\ \ \ \ \ XOffsets.clear();}
+\DoxyCodeLine{00055\ \ \ \ \ frameCounter\ =\ 0;}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ updatePosition();}
-\DoxyCodeLine{00058\ \}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{int}\ Bird::getTheme()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ currentTheme;}
-\DoxyCodeLine{00062\ \}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ Bird::setTheme(\textcolor{keywordtype}{int}\ theme)\ \{}
-\DoxyCodeLine{00065\ \ \ \ \ currentTheme\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(theme\ \%\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(backgrounds.size()));}
-\DoxyCodeLine{00066\ \ \ \ \ currentBackground\ =\ currentTheme;}
-\DoxyCodeLine{00067\ \ \ \ \ background\ =\ backgrounds[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(currentBackground)];}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ currentSprite\ =\ 0;}
-\DoxyCodeLine{00071\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ currentSprite\ =\ 1;}
-\DoxyCodeLine{00073\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ currentSprite\ =\ 2;}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \ \ \ \ sprite\ =\ sprites[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(currentSprite)];}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ updatePosition();}
-\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00057\ \ \ \ \ generateRandomIntervals();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ updatePosition();}
+\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ Bird::getTheme()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ currentTheme;}
+\DoxyCodeLine{00064\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ Bird::setTheme(\textcolor{keywordtype}{int}\ theme)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ currentTheme\ =\ theme\ \%\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(backgrounds.size());}
+\DoxyCodeLine{00069\ \ \ \ \ currentBackground\ =\ currentTheme;}
+\DoxyCodeLine{00070\ \ \ \ \ background\ =\ backgrounds[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(currentBackground)];}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ currentSprite\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ currentSprite\ =\ 1;}
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ currentSprite\ =\ 2;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ sprite\ =\ sprites[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(currentSprite)];}
 \DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ Bird::updatePosition()\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ position\ =\ \{xPosition,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(yPosition)\};}
-\DoxyCodeLine{00083\ \}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ Bird::render()\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isDead)\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ window.draw\_image(position,\ sprite,\ BIRD\_WIDTH,\ BIRD\_HEIGHT);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ positionHistory.size();\ ++i)\ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xOffset\ =\ 0;}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ XOffsets.size())\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xOffset\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(XOffsets[i]);}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ trailSize\ =\ BIRD\_WIDTH\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i\ *\ 3);}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trailSize\ <\ 10)\ trailSize\ =\ 10;}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{positionHistory[i].x\ -\/\ xOffset,\ positionHistory[i].y\},\ trails[0],\ trailSize,}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trailSize);}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (positionHistory[i].x\ -\/\ xOffset\ >=\ 0)\ \{}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory[i].x\ -\/\ xOffset,}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory[i].y\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(xOffset\ *\ 1.5)}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},\ trails[1],\ trailSize,\ trailSize);}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trailSize\ >=\ BIRD\_WIDTH\ *\ 0.3)\ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{positionHistory[i].x\ -\/\ xOffset,\ positionHistory[i].y\},\ trails[2],\ trailSize,}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trailSize);}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00114\ \ \ \ \ \}}
-\DoxyCodeLine{00115\ \}}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ Bird::renderBackground()\ \{}
-\DoxyCodeLine{00118\ \ \ \ \ window.draw\_image(\{0,\ 0\},\ background,\ window.width(),\ window.height());}
-\DoxyCodeLine{00119\ \}}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ Bird::update()\ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDead)}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00124\ \ \ \ \ yPosition\ +=\ gravity;}
-\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ gravity\ +=\ 0.3;}
-\DoxyCodeLine{00128\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ gravity\ =\ 3;}
-\DoxyCodeLine{00130\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 2)\ \{}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ acceleration\ =\ 0.3;}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxGravitySpeed\ =\ 8.0;}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gravity\ >=\ 0)\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ +=\ acceleration;}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ std::min(gravity,\ maxGravitySpeed);}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ -\/=\ acceleration;}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ std::max(gravity,\ -\/maxGravitySpeed);}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00141\ \ \ \ \ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (yPosition\ <=\ 0\ ||\ (yPosition\ +\ BIRD\_HEIGHT)\ >=\ window.height())\ \{}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ isDead\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00145\ \ \ \ \ \}}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ updatePosition();}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \ \ \ \ frameCounter++;}
-\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ A\ lot\ of\ work\ just\ for\ trails}}
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (frameCounter\ >=\ currentTrailInterval)\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ frameCounter\ =\ 0;}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ positionHistory.insert(positionHistory.begin(),\ position);}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ XOffsets.insert(XOffsets.begin(),\ 0.0);}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ !=\ 1\ \&\&\ positionHistory.size()\ >\ TRAIL\_LENGTH)\ \{}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory.pop\_back();}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (XOffsets.size()\ >\ TRAIL\_LENGTH)\ \{}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ generateRandomIntervals();}
-\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ updatePosition();}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ Bird::updatePosition()\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ position\ =\ \{xPosition,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(yPosition)\};}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ Bird::render()\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isDead)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ window.draw\_image(position,\ sprite,\ BIRD\_WIDTH,\ BIRD\_HEIGHT);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ positionHistory.size();\ ++i)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xOffset\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ XOffsets.size())\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xOffset\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(XOffsets[i]);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ trailSize\ =\ BIRD\_WIDTH\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i\ *\ 3);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trailSize\ <\ 10)\ trailSize\ =\ 10;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{positionHistory[i].x\ -\/\ xOffset,\ positionHistory[i].y\},\ trails[0],\ trailSize,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trailSize);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (positionHistory[i].x\ -\/\ xOffset\ >=\ 0)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory[i].x\ -\/\ xOffset,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory[i].y\ -\/\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(xOffset\ *\ 1.5)}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},\ trails[1],\ trailSize,\ trailSize);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trailSize\ >=\ BIRD\_WIDTH\ *\ 0.3)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ window.draw\_image(\{positionHistory[i].x\ -\/\ xOffset,\ positionHistory[i].y\},\ trails[2],\ trailSize,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trailSize);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ Bird::renderBackground()\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ window.draw\_image(\{0,\ 0\},\ background,\ window.width(),\ window.height());}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ Bird::update()\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDead)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00127\ \ \ \ \ yPosition\ +=\ gravity;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ gravity\ +=\ 0.3;}
+\DoxyCodeLine{00131\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ gravity\ =\ 3;}
+\DoxyCodeLine{00133\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 2)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ acceleration\ =\ 0.3;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxGravitySpeed\ =\ 8.0;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gravity\ >=\ 0)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ +=\ acceleration;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ std::min(gravity,\ maxGravitySpeed);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ -\/=\ acceleration;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ std::max(gravity,\ -\/maxGravitySpeed);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (yPosition\ <=\ 0\ ||\ (yPosition\ +\ BIRD\_HEIGHT)\ >=\ window.height())\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ isDead\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ updatePosition();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ frameCounter++;}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (frameCounter\ >=\ currentTrailInterval)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ frameCounter\ =\ 0;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ positionHistory.insert(positionHistory.begin(),\ position);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ XOffsets.insert(XOffsets.begin(),\ 0.0);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ !=\ 1\ \&\&\ positionHistory.size()\ >\ TRAIL\_LENGTH)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory.pop\_back();}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (XOffsets.size()\ >\ TRAIL\_LENGTH)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ XOffsets.size();\ i++)\ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ speed\ =\ (currentTheme\ ==\ 1)\ ?\ trailSpeed\ :\ trailSpeed\ *\ 0.5;}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ XOffsets[i]\ +=\ speed;}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ positionHistory.size()\ \&\&\ XOffsets[i]\ >\ window.width())\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ XOffsets.size()\ -\/\ 1)\ \{}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ positionHistory.size())\ \{}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory.erase(positionHistory.begin()\ +\ i);}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00178\ \ \ \ \ \}}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{while}\ (positionHistory.size()\ >\ XOffsets.size())\ \{}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ positionHistory.pop\_back();}
-\DoxyCodeLine{00182\ \ \ \ \ \}}
-\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{while}\ (XOffsets.size()\ >\ positionHistory.size())\ \{}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ generateRandomIntervals();}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ XOffsets.size();\ i++)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ speed\ =\ (currentTheme\ ==\ 1)\ ?\ trailSpeed\ :\ trailSpeed\ *\ 0.5;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ XOffsets[i]\ +=\ speed;}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ positionHistory.size()\ \&\&\ XOffsets[i]\ >\ window.width())\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ XOffsets.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ positionHistory.size())\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positionHistory.erase(positionHistory.begin()\ +\ i);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{while}\ (positionHistory.size()\ >\ XOffsets.size())\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ positionHistory.pop\_back();}
 \DoxyCodeLine{00185\ \ \ \ \ \}}
-\DoxyCodeLine{00186\ \}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \textcolor{keywordtype}{void}\ Bird::jump()\ \{}
-\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDead)}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//Different\ logic\ for\ different\ themes}}
-\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{bool}\ spaceIsPressed\ =\ window.is\_key\_down(KeyboardKey::SPACE);}
-\DoxyCodeLine{00193\ \ \ \ \ spaceJustPressed\ =\ spaceIsPressed\ \&\&\ !spaceWasPressed;}
-\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1\ and\ spaceIsPressed)\ \{}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ gravity\ =\ -\/gravity;}
-\DoxyCodeLine{00196\ \ \ \ \ \}}
-\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (spaceJustPressed)\ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ jumpHeight;}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 2)\ \{}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ -\/gravity;}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ currentSprite\ =\ (currentSprite\ ==\ 2)\ ?\ 3\ :\ 2;}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ sprite\ =\ sprites[currentSprite];}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00205\ \ \ \ \ \}}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \ \ \ \ spaceWasPressed\ =\ spaceIsPressed;}
-\DoxyCodeLine{00208\ \}}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00210\ \textcolor{keywordtype}{int}\ Bird::returnXPos()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ xPosition;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{while}\ (XOffsets.size()\ >\ positionHistory.size())\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ XOffsets.pop\_back();}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ Bird::jump()\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{if}\ (isDead)}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{bool}\ spaceIsPressed\ =\ window.is\_key\_down(KeyboardKey::SPACE);}
+\DoxyCodeLine{00196\ \ \ \ \ spaceJustPressed\ =\ spaceIsPressed\ \&\&\ !spaceWasPressed;}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 1\ and\ spaceIsPressed)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ gravity\ =\ -\/gravity;}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (spaceJustPressed)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 0)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ jumpHeight;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentTheme\ ==\ 2)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ gravity\ =\ -\/gravity;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ currentSprite\ =\ (currentSprite\ ==\ 2)\ ?\ 3\ :\ 2;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ sprite\ =\ sprites[currentSprite];}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ spaceWasPressed\ =\ spaceIsPressed;}
 \DoxyCodeLine{00212\ \}}
 \DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \textcolor{keywordtype}{int}\ Bird::returnYPos()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{return}\ yPosition;}
-\DoxyCodeLine{00216\ \}}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \textcolor{keywordtype}{bool}\ Bird::dying()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{return}\ isDead;}
-\DoxyCodeLine{00220\ \}}
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{int}\ Bird::returnXPos()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ xPosition;}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{int}\ Bird::returnYPos()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{return}\ yPosition;}
+\DoxyCodeLine{00221\ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keywordtype}{bool}\ Bird::dying()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ isDead;}
+\DoxyCodeLine{00225\ \}}
 
 \end{DoxyCode}

@@ -23,82 +23,81 @@
 \DoxyCodeLine{00020\ \}}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ Score::setTheme(\textcolor{keywordtype}{int}\ theme)\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (theme\ >=\ 0\ \&\&\ theme\ <\ MAX\_THEMES)\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ currentTheme\ =\ theme;}
-\DoxyCodeLine{00025\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Warning:\ Invalid\ theme\ index\ "{}}\ <<\ theme\ <<\ \textcolor{stringliteral}{"{}.\ Using\ theme\ 0."{}}\ <<\ std::endl;}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ currentTheme\ =\ 0;}
-\DoxyCodeLine{00028\ \ \ \ \ \}}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ Score::getCurrentScore()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ currentScore;}
-\DoxyCodeLine{00033\ \}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ Score::getHighScore()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ highScores[currentTheme];}
-\DoxyCodeLine{00037\ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ Score::isNewHighScore()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ currentScore\ >=\ highScores[currentTheme];}
-\DoxyCodeLine{00041\ \}}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ Score::updateAndSaveHighScore()\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (isNewHighScore())\ \{}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ highScores[currentTheme]\ =\ currentScore;}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ saveHighScoresToFile();}
-\DoxyCodeLine{00047\ \ \ \ \ \}}
-\DoxyCodeLine{00048\ \}}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ Score::loadHighScoresFromFile()\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::ifstream\ inputFile(scoreFilePath);}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!inputFile.is\_open())\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Warning:\ Could\ not\ open\ score\ file.\ Using\ default\ scores."{}}\ <<\ std::endl;}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ theme,\ score;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (inputFile\ >>\ theme\ >>\ score)\ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (theme\ >=\ 0\ \&\&\ theme\ <\ MAX\_THEMES)\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highScores[theme]\ =\ score;}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ inputFile.close();}
-\DoxyCodeLine{00066\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ loading\ scores:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
-\DoxyCodeLine{00068\ \ \ \ \ \}}
-\DoxyCodeLine{00069\ \}}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ Score::saveHighScoresToFile()\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ std::ofstream\ outputFile(scoreFilePath);}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!outputFile.is\_open())\ \{}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ score\ file\ for\ writing."{}}\ <<\ std::endl;}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_THEMES;\ ++i)\ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ outputFile\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ highScores[i]\ <<\ std::endl;}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ outputFile.close();}
-\DoxyCodeLine{00084\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ saving\ scores:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
-\DoxyCodeLine{00086\ \ \ \ \ \}}
-\DoxyCodeLine{00087\ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{comment}{//formatting\ the\ highscores}}
-\DoxyCodeLine{00090\ std::vector<std::string>\ Score::getFormattedTopScores()\ \{}
-\DoxyCodeLine{00091\ \ \ \ \ formatedTopScores.clear();}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_THEMES;\ ++i)\ \{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::string\ scoreText\ =\ themeNames[i]\ +\ \textcolor{stringliteral}{"{}:\ "{}}\ +\ std::to\_string(highScores[i]);}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ formatedTopScores.push\_back(scoreText);}
-\DoxyCodeLine{00096\ \ \ \ \ \}}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ formatedTopScores;}
-\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (theme\ >=\ 0\ \&\&\ theme\ <\ MAX\_THEMES)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ currentTheme\ =\ theme;}
+\DoxyCodeLine{00026\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Warning:\ Invalid\ theme\ index\ "{}}\ <<\ theme\ <<\ \textcolor{stringliteral}{"{}.\ Using\ theme\ 0."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ currentTheme\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{int}\ Score::getCurrentScore()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ currentScore;}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ Score::getHighScore()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ highScores[currentTheme];}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ Score::isNewHighScore()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ currentScore\ >=\ highScores[currentTheme];}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ Score::updateAndSaveHighScore()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (isNewHighScore())\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ highScores[currentTheme]\ =\ currentScore;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ saveHighScoresToFile();}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ Score::loadHighScoresFromFile()\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::ifstream\ inputFile(scoreFilePath);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!inputFile.is\_open())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Could\ not\ open\ score\ file.\ Using\ default\ scores."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ theme,\ score;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (inputFile\ >>\ theme\ >>\ score)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (theme\ >=\ 0\ \&\&\ theme\ <\ MAX\_THEMES)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highScores[theme]\ =\ score;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ inputFile.close();}
+\DoxyCodeLine{00068\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ loading\ scores:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ Score::saveHighScoresToFile()\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::ofstream\ outputFile(scoreFilePath);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!outputFile.is\_open())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ score\ file\ for\ writing."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_THEMES;\ ++i)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ outputFile\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ highScores[i]\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ outputFile.close();}
+\DoxyCodeLine{00087\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ saving\ scores:\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ std::vector<std::string>\ Score::getFormattedTopScores()\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ formatedTopScores.clear();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MAX\_THEMES;\ ++i)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ std::string\ scoreText\ =\ themeNames[i]\ +\ \textcolor{stringliteral}{"{}:\ "{}}\ +\ std::to\_string(highScores[i]);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ formatedTopScores.push\_back(scoreText);}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ formatedTopScores;}
+\DoxyCodeLine{00102\ \}}
 
 \end{DoxyCode}
