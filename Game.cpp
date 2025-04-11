@@ -15,8 +15,11 @@ void Game::reset() {
     bird.reset();
 
     towers.clear();
-    Tower t = Tower{window, 500};
-    towers.push_back(t);
+    //Tower t = Tower{window, 0};
+    towers.reserve(36);
+    Tower t2 = Tower {window, window.width()};
+    towers.push_back(t2);
+    //towers.push_back(t2);
     current_time = time(0);
  
     gameOver = false;
@@ -78,20 +81,9 @@ void Game::render() {
     bird.render();
 
     // TOWER LOGIC
-    for (int i = 0; i < int(towers.size()); i++) {
-        towers[i].render();
+    for (auto& t : towers) {
+        t.render();
     }
-    
-    if (time(0) == current_time + 3) {
-        current_time = time(0);
-        towers.push_back(Tower{window, 500});
-
-        std::cout << int(towers.size()) << std::endl;
-        if(int(towers.size()) > 5) {
-            towers.pop_back();
-        }
-    }
-    
     //here
 
     std::string scoreText = "Score: " + std::to_string(score);
@@ -102,7 +94,22 @@ void Game::render() {
 void Game::update() {
 
     bird.update();
+
     //tower.updatePosition();
+    int i = 0;
+    for (auto& t : towers) {
+        t.updatePosition();
+        /*if(t.isOutOfScreen()) {
+            towers.erase(towers.begin(), towers.begin() + i);
+        }
+        i++;*/
+    }
+    if (time(0) == current_time + 3) {
+        current_time = time(0);
+        towers.push_back(Tower{window, window.width()});
+        std::cout << towers.size() << std::endl;
+    }
+    
 
     //kollisjonslogikk
     for (int i = 0; i < int(towers.size()); i++) {

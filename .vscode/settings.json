@@ -5,5 +5,10 @@
     "cmake.configureOnEdit": false,
     "makefile.alwaysPreConfigure": false,
     "C_Cpp.default.compileCommands": "c:\\Users\\vilje\\Desktop\\Studie\\TDT4102\\FlappyBird\\builddir/compile_commands.json",
-    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild"
+    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild",
+    "files.associations": {
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
+    }
 }

@@ -27,12 +27,14 @@ private:
     int yPosition_upper;
     int yPosition_lower;
     int xPosition;
+    bool outOfScreen;
 public:
     Tower(TDT4102::AnimationWindow &gameWindow, int xPosition);
 
     void updatePosition();
     void render();
-    bool checkCollision (int birdX, int birdY);
+    bool checkCollision (int birdX, int birdY) const;
+    bool isOutOfScreen() const;
 };
 
 #endif
